@@ -71,7 +71,7 @@ export function Contact() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      await response.json();
 
       if (response.ok) {
         // Success

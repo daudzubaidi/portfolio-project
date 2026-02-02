@@ -106,7 +106,7 @@ export function FAQ() {
               Still Got Questions?
             </h2>
             <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
-              I've listed answers to questions I often get as a frontend
+              I&apos;ve listed answers to questions I often get as a frontend
               developer.
             </p>
           </div>
