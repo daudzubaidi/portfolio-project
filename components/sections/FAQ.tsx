@@ -97,15 +97,18 @@ export function FAQ() {
   }, []);
 
   return (
-    <section id="faq" className="dark-section py-[80px] px-4 lg:px-[120px]">
-      <div className="max-w-[1200px] mx-auto flex flex-col gap-[48px]">
+    <section
+      id="faq"
+      className="dark-section px-[20px] py-[40px] lg:py-[80px] lg:px-[120px]"
+    >
+      <div className="max-w-[1200px] mx-auto flex flex-col gap-[24px] lg:gap-[48px]">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-0 w-full">
-          <div className="flex flex-col gap-[16px] w-full lg:w-[534.5px]">
-            <h2 className="text-[48px] font-bold text-white leading-[60px] tracking-[-2.4px]">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[25px] lg:gap-0 w-full">
+          <div className="flex flex-col gap-[8px] w-full lg:w-[534.5px]">
+            <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
               Still Got Questions?
             </h2>
-            <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+            <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
               I&apos;ve listed answers to questions I often get as a frontend
               developer.
             </p>
@@ -116,7 +119,7 @@ export function FAQ() {
               type="button"
               onClick={() => scroll("prev")}
               disabled={!canScrollPrev}
-              className={`w-[118px] h-[48px] border border-[#22252b] text-[16px] font-semibold leading-[30px] tracking-[-0.48px] flex items-center justify-center p-[8px] ${
+              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] flex items-center justify-center p-[8px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
                 canScrollPrev ? "text-[#fdfdfd]" : "text-[#252b37]"
               }`}
             >
@@ -126,7 +129,7 @@ export function FAQ() {
               type="button"
               onClick={() => scroll("next")}
               disabled={!canScrollNext}
-              className={`w-[118px] h-[48px] border border-[#22252b] text-[16px] font-semibold leading-[30px] tracking-[-0.48px] flex items-center justify-center p-[8px] ${
+              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] flex items-center justify-center p-[8px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
                 canScrollNext ? "text-[#fdfdfd]" : "text-[#252b37]"
               }`}
             >
@@ -138,13 +141,13 @@ export function FAQ() {
         <div
           ref={scrollContainerRef}
           onScroll={updateScrollState}
-          className="flex flex-col gap-[20px] items-center w-full md:flex-row md:flex-wrap md:items-stretch md:justify-start lg:flex-nowrap lg:items-center lg:overflow-x-auto lg:scroll-smooth lg:[scrollbar-width:none] lg:[-ms-overflow-style:none] lg:[&::-webkit-scrollbar]:hidden"
+          className="flex w-full gap-[20px] items-start overflow-x-auto scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:flex-row md:flex-wrap md:items-stretch md:justify-start lg:flex-nowrap lg:items-center"
         >
           {faqs.map((faq) =>
             faq.active ? (
               <div
                 key={faq.question}
-                className="bg-[#075864] border border-[#22252b] flex flex-col h-[466px] items-start justify-between p-[20px] shrink-0 w-full sm:w-[379px] lg:w-[379px]"
+                className="bg-[#075864] border border-[#22252b] flex flex-col h-[356px] items-start justify-between p-[15px] shrink-0 w-full sm:w-[379px] lg:h-[466px] lg:p-[20px] lg:w-[379px]"
               >
                 <div className="flex items-start justify-between w-full">
                   <div className="relative rounded-[100px] shrink-0 size-[80px] bg-[#149bb0] overflow-hidden">
@@ -169,11 +172,11 @@ export function FAQ() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-[12px] items-start justify-center w-full text-[#fdfdfd]">
-                  <h3 className="text-[28px] font-semibold leading-[38px] tracking-[-1.12px] w-full">
+                <div className="flex flex-col gap-[10px] items-start justify-center w-full text-[#fdfdfd] lg:gap-[12px]">
+                  <h3 className="text-[24px] font-semibold leading-[36px] tracking-[-0.96px] w-full lg:text-[28px] lg:leading-[38px] lg:tracking-[-1.12px]">
                     {faq.question}
                   </h3>
-                  <p className="text-[16px] font-medium leading-[30px] tracking-[-0.48px] w-full">
+                  <p className="text-[14px] font-medium leading-[28px] w-full lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
                     {faq.answer}
                   </p>
                 </div>
@@ -181,7 +184,7 @@ export function FAQ() {
             ) : (
               <div
                 key={faq.question}
-                className="border border-[#22252b] flex flex-col h-[466px] items-start justify-between p-[20px] shrink-0 w-full sm:w-[252px] lg:w-[252px]"
+                className="border border-[#22252b] flex flex-col h-[356px] items-start justify-between p-[15px] shrink-0 w-full sm:w-[252px] lg:h-[466px] lg:p-[20px] lg:w-[252px]"
               >
                 <div className="relative shrink-0 size-[40px]">
                   <img
@@ -192,7 +195,7 @@ export function FAQ() {
                   />
                 </div>
                 <div className="flex flex-col items-start justify-center w-full">
-                  <h3 className="text-[28px] font-semibold leading-[38px] tracking-[-1.12px] text-[#fdfdfd] w-full">
+                  <h3 className="text-[24px] font-semibold leading-[36px] tracking-[-0.96px] text-[#fdfdfd] w-full lg:text-[28px] lg:leading-[38px] lg:tracking-[-1.12px]">
                     {faq.question}
                   </h3>
                 </div>

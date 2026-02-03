@@ -37,7 +37,7 @@ function ToolRow({ tool, index }: { tool: ToolItem; index: number }) {
         >
           <div className="flex items-center gap-[3px] w-full">
             <div className="flex items-center gap-[3px]">
-              <div className="w-[60px] h-[60px] flex items-center justify-center">
+              <div className="w-[60px] h-[60px] flex items-center justify-center p-[10px]">
                 <div className="w-[40px] h-[40px] rounded-full bg-[#252b37] animate-pulse" />
               </div>
               <div className="h-[14px] w-[120px] rounded-full bg-[#252b37] animate-pulse" />
@@ -62,14 +62,14 @@ function ToolRow({ tool, index }: { tool: ToolItem; index: number }) {
                 <img
                   src={tool.icon}
                   alt={tool.name}
-                  className="w-[44px] h-[44px] object-contain"
+                  className="w-[35px] h-[35px] object-contain lg:w-[44px] lg:h-[44px]"
                 />
               </div>
-              <span className="text-[20px] font-normal leading-[34px] text-white tracking-[-0.6px] text-center">
+              <span className="text-[16px] font-normal leading-[30px] text-white tracking-[-0.48px] text-center lg:text-[20px] lg:leading-[34px] lg:tracking-[-0.6px]">
                 {tool.name}
               </span>
             </div>
-            <span className="flex-1 text-[20px] font-bold leading-[34px] text-white text-right">
+            <span className="flex-1 text-[16px] font-bold leading-[30px] text-white text-right tracking-[-0.32px] lg:text-[20px] lg:leading-[34px] lg:tracking-normal">
               {tool.percentage}%
             </span>
           </div>
@@ -138,22 +138,25 @@ export function Tools() {
   const indicatorTop = scrollPercentage * maxScroll;
 
   return (
-    <section id="skills" className="dark-section py-[80px] px-4 lg:px-[120px]">
+    <section
+      id="skills"
+      className="dark-section py-[40px] px-4 lg:py-[80px] lg:px-[120px]"
+    >
       <div className="max-w-[1440px] mx-auto">
-        <div className="flex flex-col lg:flex-row gap-[80px] lg:gap-[191px]">
+        <div className="flex flex-col lg:flex-row gap-[24px] lg:gap-[191px]">
           {/* Left Column - Title & CTA */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col justify-between shrink-0 lg:w-[367px]"
+            className="flex flex-col gap-[24px] lg:gap-0 lg:justify-between shrink-0 lg:w-[367px]"
           >
-            <div className="flex flex-col gap-[16px]">
-              <h2 className="text-[clamp(32px,5vw,48px)] font-bold text-white leading-[60px] tracking-[-2.4px]">
+            <div className="flex flex-col gap-[8px] lg:gap-[16px] max-w-[367px]">
+              <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
                 Tools I Use to Build
               </h2>
-              <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+              <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] tracking-normal lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
                 From code to design — here&apos;s the tech that helps me turn
                 ideas into real products.
               </p>
@@ -163,7 +166,7 @@ export function Tools() {
               variant="secondary"
               size="md"
               leftIcon={<MailIcon />}
-              className="w-full h-[56px] mt-8 lg:mt-0 rounded-none"
+              className="w-full h-[48px] p-[8px] mt-0 rounded-none text-[14px] leading-[28px] lg:h-[56px] lg:text-[16px] lg:leading-[30px]"
               onClick={() => {
                 document
                   .getElementById("contact")

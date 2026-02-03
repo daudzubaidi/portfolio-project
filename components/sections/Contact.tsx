@@ -115,60 +115,60 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#0a0d12] pt-[80px] pb-[120px] px-4 lg:px-[120px] lg:h-[955px]"
+      className="relative overflow-hidden bg-black px-[20px] py-[40px] lg:bg-[#0a0d12] lg:px-[120px] lg:pt-[80px] lg:pb-[120px] lg:h-[955px]"
       style={{
         backgroundImage:
-          "linear-gradient(180deg, rgba(27, 178, 201, 0) 32.786%, #1bb2c9 139.81%)",
+          "linear-gradient(180deg, rgba(27, 178, 201, 0) 32.786%, #1bb2c9 109.81%)",
       }}
     >
       {/* Background glass board effect */}
       <div
-        className="absolute inset-x-0 top-[245px] h-[757px] w-full pointer-events-none"
+        className="absolute pointer-events-none left-[calc(50%+31.7px)] top-[415px] h-[calc(100%-415px)] w-[1276.407px] -translate-x-1/2 lg:left-0 lg:top-[245px] lg:h-[757px] lg:w-full lg:translate-x-0"
         aria-hidden="true"
       >
         <div className="absolute inset-0 flex">
           {[...Array(19)].map((_, i) => (
-            <div
-              key={i}
-              className="flex-1 h-full backdrop-blur-[50px]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(269.847deg, rgba(22, 22, 24, 0.4) 1.069%, rgba(0, 0, 0, 0.4) 17.356%, rgba(26, 26, 29, 0.004) 98.788%)",
-                boxShadow: "inset 0px 2px 4px 0px rgba(255, 255, 255, 0.16)",
-              }}
-            />
+            <div key={i} className="relative flex-1 h-full">
+              <div
+                className="absolute inset-0 backdrop-blur-[44.32px]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(269.847deg, rgba(22, 22, 24, 0.4) 1.069%, rgba(0, 0, 0, 0.4) 17.356%, rgba(26, 26, 29, 0.004) 98.788%)",
+                  boxShadow:
+                    "inset 0px 1.773px 3.546px 0px rgba(255, 255, 255, 0.16)",
+                }}
+              >
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0px_1.773px_3.546px_0px_rgba(255,255,255,0.16)]" />
+              </div>
+            </div>
           ))}
         </div>
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, black 15.443%, rgba(0, 0, 0, 0) 104.67%)",
-          }}
+          className="absolute left-0 top-0 h-[465.357px] w-[1276.407px] bg-[linear-gradient(180deg,black_15.443%,rgba(0,0,0,0)_104.67%)] lg:inset-0 lg:h-full lg:w-full"
         />
       </div>
 
-      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-[40px] relative z-10">
+      <div className="max-w-[1200px] mx-auto flex flex-col gap-[24px] lg:flex-row lg:gap-[40px] relative z-10 w-full">
         {/* Left Column - Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:w-[580px] flex-1 min-w-0 bg-black border border-[#22252b] px-[24px] py-[40px] flex flex-col gap-[31px]"
+          className="lg:w-[580px] flex-1 min-w-0 bg-black border border-[#22252b] p-[16px] flex flex-col gap-[24px] lg:px-[24px] lg:py-[40px] lg:gap-[31px]"
         >
-          <div className="flex flex-col gap-[16px]">
-            <h2 className="text-[48px] font-bold text-white leading-[60px] tracking-[-2.4px]">
+          <div className="flex flex-col gap-[8px] lg:gap-[16px]">
+            <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
               Let’s{" "}
               <span className="text-[#149bb0]">Build Something</span> Great
             </h2>
-            <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+            <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
               Got an idea, a project, or just want to connect? I’m always
               open to new conversations.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[16px] lg:gap-[20px]">
             <Input
               label="Name"
               placeholder="Enter your name"
@@ -200,7 +200,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-[56px] bg-white text-[#0a0d12] text-[16px] font-semibold leading-[30px] tracking-[-0.48px] flex items-center justify-center gap-[8px] p-[8px] disabled:opacity-50"
+              className="w-full h-[48px] bg-white text-[#0a0d12] text-[14px] font-semibold leading-[28px] flex items-center justify-center gap-[8px] p-[8px] disabled:opacity-50 lg:h-[56px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]"
             >
               <span className="relative w-[24px] h-[24px] overflow-hidden">
                 <span
@@ -228,13 +228,13 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="lg:w-[580px] flex-1 min-w-0 flex flex-col justify-between self-stretch"
         >
-          <div className="flex flex-col gap-[20px] w-full">
+          <div className="flex flex-col gap-[24px] w-full">
             {/* Address */}
-            <div className="flex flex-col gap-[12px]">
-              <h3 className="text-[20px] font-semibold leading-[34px] text-[#fdfdfd]">
+            <div className="flex flex-col gap-[2px] lg:gap-[12px]">
+              <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:font-semibold lg:leading-[34px] lg:tracking-normal">
                 Address
               </h3>
-              <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+              <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
                 Jakarta, Indonesia
               </p>
             </div>
@@ -250,11 +250,11 @@ export function Contact() {
             </div>
 
             {/* Contact */}
-            <div className="flex flex-col gap-[12px]">
-              <h3 className="text-[20px] font-semibold leading-[34px] text-[#fdfdfd]">
+            <div className="flex flex-col gap-[2px] lg:gap-[12px]">
+              <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:font-semibold lg:leading-[34px] lg:tracking-normal">
                 Contact
               </h3>
-              <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+              <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
                 (+62) 1234567890
               </p>
             </div>
@@ -270,8 +270,8 @@ export function Contact() {
             </div>
 
             {/* Social Media */}
-            <div className="flex flex-col gap-[20px]">
-              <h3 className="text-[20px] font-semibold leading-[34px] text-[#fdfdfd]">
+            <div className="flex flex-col gap-[16px] lg:gap-[20px]">
+              <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:font-semibold lg:leading-[34px] lg:tracking-normal">
                 Social Media
               </h3>
               <div className="flex items-center gap-[12px] h-[40px] w-[208px]">
@@ -281,7 +281,7 @@ export function Contact() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-[40px] h-[40px] rounded-full border border-[#252b37] overflow-hidden"
+                    className="flex items-center justify-center w-[40px] h-[40px] rounded-full border border-[rgba(253,253,253,0.1)] overflow-hidden lg:border-[#252b37]"
                     aria-label={link.alt}
                   >
                     <div className="relative w-[40px] h-[40px]">
@@ -307,7 +307,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h2 className="text-[56px] font-bold text-white leading-[68px] tracking-[-1.12px]">
+            <h2 className="text-[40px] font-bold text-white leading-[56px] tracking-[-2px] lg:text-[56px] lg:leading-[68px] lg:tracking-[-1.12px]">
               GET IN TOUCH
             </h2>
           </motion.div>

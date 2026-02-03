@@ -118,17 +118,20 @@ const itemVariants = {
 
 export function About() {
   return (
-    <section id="about" className="dark-section py-[80px] px-4 lg:px-[120px]">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-[48px]">
+    <section
+      id="about"
+      className="dark-section py-[40px] px-0 lg:py-[80px] lg:px-[120px]"
+    >
+      <div className="max-w-[393px] lg:max-w-[1440px] mx-auto flex flex-col gap-[24px] lg:gap-[48px] px-[16px] lg:px-0">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row justify-between gap-8"
+          className="flex flex-col lg:flex-row justify-between gap-[24px] lg:gap-8"
         >
-          <h2 className="text-[clamp(28px,5vw,40px)] font-bold text-white leading-[56px] tracking-[-2px] max-w-[756px]">
+          <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[40px] lg:leading-[56px] lg:tracking-[-2px] max-w-[756px]">
             I turn ideas and designs into functional, accessible, and performant
             websites{" "}
             <span className="text-[#149bb0]">
@@ -137,8 +140,8 @@ export function About() {
             .
           </h2>
 
-          <div className="flex flex-col items-start lg:items-end gap-[116px] w-[208px] shrink-0">
-            <span className="text-[18px] font-normal leading-[32px] text-[#a4a7ae] tracking-[-0.54px]">
+          <div className="flex flex-col items-start gap-[16px] lg:items-end lg:gap-[116px] w-full lg:w-[208px] shrink-0">
+            <span className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px] lg:text-[18px] lg:leading-[32px] lg:tracking-[-0.54px]">
               About Me
             </span>
             <div className="flex items-center gap-[16px] h-[40px]">
@@ -154,24 +157,24 @@ export function About() {
         </motion.div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#252b37]" />
+        <div className="w-full h-px bg-[#22252b]" />
 
         {/* Content Grid */}
-        <div className="flex flex-col lg:flex-row gap-[41px]">
+        <div className="flex flex-col lg:flex-row gap-[24px] lg:gap-[41px]">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative w-full lg:w-[453px] h-[513px] shrink-0 overflow-hidden"
+            className="relative w-[361px] h-[409px] lg:w-[453px] lg:h-[513px] shrink-0 overflow-hidden"
           >
             <Image
               src="/images/about.png"
               alt="Edwin Anderson working on laptop"
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 453px"
+              sizes="(max-width: 1024px) 361px, 453px"
             />
           </motion.div>
 
@@ -181,45 +184,79 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex-1 flex flex-col gap-[40px]"
+            className="flex-1 flex flex-col gap-[24px] lg:gap-[40px]"
           >
-            <div className="flex flex-col sm:flex-row gap-[48px]">
-              {skills.slice(0, 2).map((skill) => (
-                <motion.div
-                  key={skill.title}
-                  variants={itemVariants}
-                  className="flex-1 flex flex-col gap-[24px]"
-                >
-                  <div className="shrink-0 w-[40px] h-[40px]">{skill.icon}</div>
-                  <div className="flex flex-col gap-[2px]">
-                    <h3 className="text-[20px] font-bold leading-[34px] text-white">
-                      {skill.title}
-                    </h3>
-                    <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
-                      {skill.description}
-                    </p>
-                  </div>
-                </motion.div>
+            {/* Mobile list */}
+            <div className="flex flex-col gap-[24px] lg:hidden">
+              {skills.map((skill, index) => (
+                <div key={skill.title} className="flex flex-col gap-[24px]">
+                  <motion.div
+                    variants={itemVariants}
+                    className="flex flex-col gap-[12px]"
+                  >
+                    <div className="shrink-0 w-[40px] h-[40px]">
+                      {skill.icon}
+                    </div>
+                    <div className="flex flex-col gap-[2px]">
+                      <h3 className="text-[18px] font-bold leading-[32px] text-white">
+                        {skill.title}
+                      </h3>
+                      <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae]">
+                        {skill.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                  {index < skills.length - 1 && (
+                    <div className="w-full h-px bg-[#22252b]" />
+                  )}
+                </div>
               ))}
             </div>
-            <div className="flex flex-col sm:flex-row gap-[48px]">
-              {skills.slice(2, 4).map((skill) => (
-                <motion.div
-                  key={skill.title}
-                  variants={itemVariants}
-                  className="flex-1 flex flex-col gap-[24px]"
-                >
-                  <div className="shrink-0 w-[40px] h-[40px]">{skill.icon}</div>
-                  <div className="flex flex-col gap-[2px]">
-                    <h3 className="text-[20px] font-bold leading-[34px] text-white">
-                      {skill.title}
-                    </h3>
-                    <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
-                      {skill.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+
+            {/* Desktop grid */}
+            <div className="hidden lg:flex lg:flex-col lg:gap-[40px]">
+              <div className="flex flex-col sm:flex-row gap-[24px] lg:gap-[48px]">
+                {skills.slice(0, 2).map((skill) => (
+                  <motion.div
+                    key={skill.title}
+                    variants={itemVariants}
+                    className="flex-1 flex flex-col gap-[16px] lg:gap-[24px]"
+                  >
+                    <div className="shrink-0 w-[40px] h-[40px]">
+                      {skill.icon}
+                    </div>
+                    <div className="flex flex-col gap-[2px]">
+                      <h3 className="text-[20px] font-bold leading-[34px] text-white">
+                        {skill.title}
+                      </h3>
+                      <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+                        {skill.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-[24px] lg:gap-[48px]">
+                {skills.slice(2, 4).map((skill) => (
+                  <motion.div
+                    key={skill.title}
+                    variants={itemVariants}
+                    className="flex-1 flex flex-col gap-[16px] lg:gap-[24px]"
+                  >
+                    <div className="shrink-0 w-[40px] h-[40px]">
+                      {skill.icon}
+                    </div>
+                    <div className="flex flex-col gap-[2px]">
+                      <h3 className="text-[20px] font-bold leading-[34px] text-white">
+                        {skill.title}
+                      </h3>
+                      <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+                        {skill.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

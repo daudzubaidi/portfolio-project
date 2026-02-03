@@ -100,20 +100,20 @@ export function Experience() {
   }, []);
 
   return (
-    <section className="dark-section py-[80px] px-4 lg:px-[120px]">
-      <div className="max-w-[1200px] mx-auto flex flex-col gap-[48px]">
+    <section className="dark-section py-[40px] px-[16px] lg:py-[80px] lg:px-[120px]">
+      <div className="max-w-[1200px] mx-auto flex flex-col gap-[24px] lg:gap-[48px]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-[16px] w-full"
+          className="flex flex-col gap-[8px] w-full"
         >
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-white leading-[60px] tracking-[-2.4px]">
+          <h2 className="text-[32px] lg:text-[48px] font-bold text-white leading-[42px] lg:leading-[60px] tracking-[-1.28px] lg:tracking-[-2.4px]">
             My Journey in Tech
           </h2>
-          <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+          <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
             From small gigs to real-world challenges — each experience helped me
             grow as a builder and problem-solver.
           </p>
@@ -125,7 +125,7 @@ export function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col gap-[48px]"
+          className="flex flex-col gap-[16px] lg:gap-[48px]"
         >
           {/* Cards Row */}
           <div className="overflow-hidden">
@@ -141,7 +141,7 @@ export function Experience() {
                 <div
                   key={index}
                   ref={index === 0 ? firstCardRef : undefined}
-                  className="flex-shrink-0 w-[350px] lg:w-[564px]"
+                  className="flex-shrink-0 w-full lg:w-[564px]"
                 >
                   <JobCard {...exp} />
                 </div>
@@ -150,7 +150,7 @@ export function Experience() {
           </div>
 
           {/* Progress Line */}
-          <div className="relative w-full h-[4px]" ref={progressTrackRef}>
+          <div className="relative w-full h-[4px] hidden lg:block" ref={progressTrackRef}>
             <div className="absolute inset-0 top-1/2 -translate-y-1/2 h-px bg-[#22252b]" />
             <div
               className="absolute left-0 top-1/2 -translate-y-1/2 h-[4px] bg-[#fdfdfd] transition-transform duration-300"
@@ -169,7 +169,7 @@ export function Experience() {
             <button
               onClick={() => scroll("prev")}
               disabled={!canScrollPrev}
-              className={`w-[118px] h-[48px] border border-[#22252b] text-[16px] font-semibold leading-[30px] tracking-[-0.48px] flex items-center justify-center ${
+              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] tracking-[-0.32px] flex items-center justify-center lg:w-[118px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
                 canScrollPrev ? "text-[#fdfdfd]" : "text-[#252b37]"
               }`}
             >
@@ -178,7 +178,7 @@ export function Experience() {
             <button
               onClick={() => scroll("next")}
               disabled={!canScrollNext}
-              className={`w-[118px] h-[48px] border border-[#22252b] text-[16px] font-semibold leading-[30px] tracking-[-0.48px] flex items-center justify-center ${
+              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] tracking-[-0.32px] flex items-center justify-center lg:w-[118px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
                 canScrollNext ? "text-[#fdfdfd]" : "text-[#252b37]"
               }`}
             >

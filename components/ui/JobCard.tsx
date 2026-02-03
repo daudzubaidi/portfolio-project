@@ -31,7 +31,7 @@ export function JobCard({
   return (
     <div
       className={cn(
-        "relative flex flex-col gap-[20px] p-[20px] border border-[#22252b]",
+        "relative flex flex-col gap-[20px] p-[16px] border border-[#22252b] lg:p-[20px]",
         className
       )}
     >
@@ -41,10 +41,10 @@ export function JobCard({
       {/* Header */}
       <div className="flex items-center justify-between w-full">
         <div className="flex flex-col gap-[4px] w-[194px]">
-          <h3 className="text-[20px] font-bold leading-[34px] text-[#fdfdfd]">
+          <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:leading-[34px] lg:tracking-normal">
             {title}
           </h3>
-          <p className="text-[16px] font-normal leading-[30px] text-[#fdfdfd] tracking-[-0.48px]">
+          <p className="text-[14px] font-normal leading-[28px] text-[#fdfdfd] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
             {period}
           </p>
         </div>
@@ -57,7 +57,7 @@ export function JobCard({
       <div className="w-full h-px bg-[#22252b]" />
 
       {/* Description */}
-      <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px] min-w-full">
+      <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] min-w-full lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
         {description}
       </p>
 

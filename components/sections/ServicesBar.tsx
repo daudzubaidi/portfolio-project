@@ -33,7 +33,7 @@ const StarIcon = () => (
     viewBox="0 0 60 60"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="shrink-0"
+    className="shrink-0 w-[38px] h-[38px] lg:w-[60px] lg:h-[60px]"
     aria-hidden="true"
   >
     <g opacity="0.6">
@@ -63,13 +63,13 @@ export function ServicesBar() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex items-center gap-[14px] px-[24px] py-[24px] h-[108px] overflow-x-auto scrollbar-hide"
-      >
+      className="flex items-center gap-[14px] px-[24px] py-[12px] h-[48px] lg:py-[24px] lg:h-[108px] overflow-x-auto scrollbar-hide"
+    >
         <div className="flex items-center gap-[14px] min-w-max mx-auto">
           {services.map((service, index) => (
             <div key={service} className="flex items-center gap-[14px]">
               {index > 0 && <StarIcon />}
-              <span className="text-[24px] sm:text-[32px] lg:text-[40px] font-bold text-white leading-[56px] tracking-[-2px] whitespace-nowrap">
+              <span className="text-[20px] lg:text-[40px] font-bold text-white leading-[34px] lg:leading-[56px] tracking-[-2px] whitespace-nowrap">
                 {service}
               </span>
             </div>

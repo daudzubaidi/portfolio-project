@@ -38,9 +38,9 @@ const MailIcon = () => (
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[902px] overflow-hidden bg-[#0a0d12]">
+    <section className="relative w-screen lg:w-full h-[971px] lg:h-[902px] overflow-hidden bg-[#0a0d12]">
       {/* Container to center content on wide screens */}
-      <div className="relative w-full max-w-[1440px] mx-auto h-full">
+      <div className="absolute inset-0 w-full h-full lg:relative lg:inset-auto lg:max-w-[1440px] lg:mx-auto">
         {/* ============================================
             BACKGROUND GRADIENTS - Cyan glow on upper left
             Figma: Gradient visible from top-left, brighter
@@ -48,7 +48,7 @@ export function Hero() {
 
         {/* Primary gradient - upper left */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none hidden lg:block"
           aria-hidden="true"
           style={{
             width: "1845px",
@@ -63,7 +63,7 @@ export function Hero() {
 
         {/* Secondary gradient - creates visible glow */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none hidden lg:block"
           aria-hidden="true"
           style={{
             width: "1845px",
@@ -80,6 +80,84 @@ export function Hero() {
             GRID PATTERN - + signs grid visible in upper area
             Should be visible from top of hero section
             ============================================ */}
+
+        {/* Mobile background section */}
+        <div
+          className="absolute pointer-events-none lg:hidden"
+          aria-hidden="true"
+          style={{
+            width: "100vw",
+            height: "756px",
+            left: "50%",
+            top: "0px",
+            transform: "translateX(-50%) scaleY(-1)",
+          }}
+        >
+          <div className="relative w-full h-full overflow-hidden">
+            <div
+              className="absolute opacity-80"
+              style={{
+                width: "1845px",
+                height: "1230px",
+                left: "-1047px",
+                top: "27px",
+                background:
+                  "radial-gradient(ellipse 922.5px 615px at center, rgba(20, 155, 176, 0.8) 0%, rgba(20, 155, 176, 0) 100%)",
+              }}
+            />
+            <div
+              className="absolute opacity-70"
+              style={{
+                width: "1845px",
+                height: "1230px",
+                left: "-76px",
+                top: "112px",
+                background:
+                  "radial-gradient(ellipse 922.5px 615px at center, rgba(20, 155, 176, 0.7) 0%, rgba(20, 155, 176, 0) 100%)",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Mobile Grid Vector - lines */}
+        <div
+          className="absolute pointer-events-none lg:hidden mix-blend-soft-light"
+          aria-hidden="true"
+          style={{
+            left: "-283.33px",
+            top: "-22.99px",
+            width: "882.136px",
+            height: "400.971px",
+            opacity: 0.7,
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero-grid-mobile-lines.svg"
+            alt=""
+            className="w-full h-full"
+          />
+        </div>
+
+        {/* Mobile Grid Vector - dots */}
+        <div
+          className="absolute pointer-events-none lg:hidden mix-blend-soft-light"
+          aria-hidden="true"
+          style={{
+            left: "-289.34px",
+            top: "-29px",
+            width: "894.165px",
+            height: "413px",
+            opacity: 0.8,
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero-grid-mobile-dots.svg"
+            alt=""
+            className="w-full h-full"
+          />
+        </div>
 
         {/* Grid Vector 1 - grid lines */}
         <div
@@ -276,49 +354,82 @@ export function Hero() {
       {/* ============================================
           MOBILE LAYOUT (< 1024px)
           ============================================ */}
-      <div className="lg:hidden relative z-10 px-4 sm:px-6 pt-[120px] pb-8">
-        {/* Mobile Text Content */}
+      <div className="lg:hidden relative z-10 w-full h-[971px]">
+        {/* Mobile ID Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col gap-8 max-w-full"
+          className="absolute left-1/2 top-0 -translate-x-1/2 w-[252.066px] h-[496px]"
         >
-          {/* Greeting */}
-          <p className="text-[16px] sm:text-[18px] font-normal leading-[28px] text-[#fdfdfd] tracking-[-0.6px]">
-            Hi. I&apos;m Edwin Anderson
-          </p>
+          <div className="absolute inset-0 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/id-card-bg.png"
+              alt=""
+              className="absolute max-w-none"
+              style={{
+                width: "162.27%",
+                height: "123.7%",
+                left: "-31.43%",
+                top: "-5.07%",
+              }}
+            />
+          </div>
+          <div className="absolute h-[81.311px] left-[11.83px] top-[284.59px] w-[240.238px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/brush-stroke.svg"
+              alt=""
+              className="block w-full h-full"
+            />
+          </div>
+          <div className="absolute h-[303.394px] left-1/2 -translate-x-1/2 top-[192.61px] w-[251.797px] rounded-b-[14.045px] overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/portrait.png"
+              alt="Edwin Anderson - Frontend Developer"
+              className="absolute max-w-none h-full top-0"
+              style={{
+                width: "120.49%",
+                left: "-11.31%",
+              }}
+            />
+          </div>
+        </motion.div>
 
-          {/* Title */}
-          <div className="flex flex-col gap-4 text-white">
-            <div className="flex items-baseline">
-              <h1 className="text-[48px] sm:text-[64px] font-bold leading-[42px] sm:leading-[56px] tracking-[-3px]">
-                FRONT
-              </h1>
-              <span
-                className={`${charm.className} text-[48px] sm:text-[64px] leading-[42px] sm:leading-[56px] tracking-[-3px]`}
-              >
-                END
-              </span>
+        {/* Mobile Text Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="absolute left-1/2 top-[520px] -translate-x-1/2 w-[361px] flex flex-col gap-[32px]"
+        >
+          <div className="flex flex-col gap-[16px]">
+            <p className="text-[16px] font-normal leading-[30px] text-[#fdfdfd] tracking-[-0.48px]">
+              Hi. I&apos;m Edwin Anderson
+            </p>
+
+            <div className="flex flex-col text-white text-[56px] leading-[68px] tracking-[-3.36px]">
+              <div className="flex items-center">
+                <span className="font-bold">FRONT</span>
+                <span className={`${charm.className}`}>END</span>
+              </div>
+              <span className="font-bold">DEVELOPER</span>
             </div>
-            <h1 className="text-[48px] sm:text-[64px] font-bold leading-[42px] sm:leading-[56px] tracking-[-3px]">
-              DEVELOPER
-            </h1>
+
+            <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae]">
+              Passionate about frontend development, I focus on crafting digital
+              products that are visually polished, performance-optimized, and
+              deliver a consistent experience across all platforms.
+            </p>
           </div>
 
-          {/* Description */}
-          <p className="text-[14px] sm:text-[16px] font-normal leading-[24px] sm:leading-[28px] text-[#a4a7ae] tracking-[-0.54px] max-w-[500px]">
-            Passionate about frontend development, I focus on crafting digital
-            products that are visually polished, performance-optimized, and
-            deliver a consistent experience across all platforms.
-          </p>
-
-          {/* CTA Button */}
           <Button
             variant="secondary"
-            size="md"
+            size="sm"
             leftIcon={<MailIcon />}
-            className="w-full sm:w-[287px] h-[56px] rounded-none"
+            className="w-full h-[48px] rounded-none text-[14px] leading-[28px] tracking-[0px]"
             onClick={() => {
               document
                 .getElementById("contact")
@@ -327,51 +438,6 @@ export function Hero() {
           >
             Hire Me
           </Button>
-        </motion.div>
-
-        {/* Mobile ID Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex justify-center mt-8"
-        >
-          <div className="relative w-[260px] h-[480px]">
-            <div className="absolute inset-0 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/id-card-bg.png"
-                alt=""
-                className="absolute max-w-none"
-                style={{
-                  width: "162.27%",
-                  height: "123.7%",
-                  left: "-31.43%",
-                  top: "-5.07%",
-                }}
-              />
-            </div>
-            <div className="absolute h-[80px] left-[12px] top-[270px] w-[248px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/brush-stroke.svg"
-                alt=""
-                className="block w-full h-full"
-              />
-            </div>
-            <div className="absolute h-[290px] left-1/2 -translate-x-1/2 top-[190px] w-[260px] rounded-b-[14px] overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/portrait.png"
-                alt="Edwin Anderson - Frontend Developer"
-                className="absolute max-w-none h-full top-0"
-                style={{
-                  width: "120.49%",
-                  left: "-11.31%",
-                }}
-              />
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

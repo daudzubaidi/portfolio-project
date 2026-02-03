@@ -32,7 +32,7 @@ export function PortfolioCard({
       )}
     >
       {/* Image Container */}
-      <div className="relative w-[373px] h-[373px] rounded-[8px] overflow-hidden bg-[#22252b]">
+      <div className="relative w-[361px] h-[361px] rounded-[8px] overflow-hidden bg-[#22252b] lg:w-[373px] lg:h-[373px]">
         <Image
           src={image}
           alt={title}
@@ -45,10 +45,10 @@ export function PortfolioCard({
 
       {/* Card Info */}
       <div className="flex flex-col gap-[4px] w-full">
-        <h3 className="text-[20px] font-semibold leading-[34px] text-white group-hover:text-[#149bb0] transition-colors">
+        <h3 className="text-[18px] font-semibold leading-[32px] tracking-[-0.54px] text-white group-hover:text-[#149bb0] transition-colors lg:text-[20px] lg:leading-[34px] lg:tracking-normal">
           {title}
         </h3>
-        <span className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+        <span className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
           {year}
         </span>
       </div>
