@@ -95,31 +95,34 @@ export function Navbar() {
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
-          className="fixed top-[16px] left-1/2 z-[60] w-[calc(100vw-32px)] h-[calc(100dvh-32px)] -translate-x-1/2 rounded-[16px] p-[16px] backdrop-blur-[20px] bg-[rgba(0,0,0,0.4)] md:hidden"
+          className="fixed top-[16px] left-1/2 z-[60] w-[361px] h-[812px] -translate-x-1/2 rounded-[16px] p-[16px] backdrop-blur-[20px] bg-[rgba(0,0,0,0.4)] md:hidden flex flex-col gap-[16px]"
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between w-[329px]">
             <span className="text-[20px] font-bold leading-[34px] text-white">Edwin</span>
             <button
               className="text-white p-0"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Close menu"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
+              <span className="relative block size-[24px] overflow-clip">
+                <svg
+                  className="absolute inset-1/4"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 1L1 13M1 1L13 13"
+                    stroke="#FDFDFD"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </button>
           </div>
-          <ul className="mt-[24px] flex flex-col">
+          <ul className="flex flex-col">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
