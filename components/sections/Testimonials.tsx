@@ -28,7 +28,7 @@ const testimonialContent = {
       quote:
         "Your output was prompt and had few bugs, though my instructions were sometimes hard to imagine from a UI perspective. \n Our client always wanted a 'perfect' mock-up, and your output helped me respond to their requirements.",
       author: {
-        name: "Yonemori San",
+        name: "Project Manager",
         role: "LakeSuccess Co., Ltd",
         avatar: "/images/testimonials/avatar2.png",
       },

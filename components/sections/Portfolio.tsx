@@ -35,7 +35,7 @@ const projects = [
   {
     title: "School Landing Page",
     year: "2020",
-    image: "/images/portfolio/porto5.jpg",
+    image: "/images/portfolio/porto5.png",
     href: "#",
     tech: "HTML, Bootstrap",
   },
