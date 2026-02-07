@@ -25,17 +25,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center gap-[8px] font-semibold rounded-full transition-all duration-200 focus-ring disabled:opacity-50 disabled:cursor-not-allowed";
+      "group relative inline-flex items-center justify-center gap-[8px] font-semibold rounded-full transition-all duration-300 focus-ring disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden";
 
     const variants = {
       primary:
-        "bg-white text-black hover:bg-neutral-100 active:bg-neutral-200",
+        "bg-white text-black hover:bg-neutral-100 active:bg-neutral-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-white/20",
       secondary:
-        "bg-[#149bb0] text-white hover:bg-[#0e8a9d] active:bg-[#0a7a8a]",
+        "bg-[#149bb0] text-white hover:bg-[#0e8a9d] active:bg-[#0a7a8a] hover:scale-[1.02] hover:shadow-lg hover:shadow-[#149bb0]/40 shimmer-btn",
       outline:
-        "border border-[#414651] bg-transparent text-[#a4a7ae] hover:border-white hover:text-white",
+        "border border-[#414651] bg-transparent text-neutral-400 hover:border-[#149bb0] hover:text-[#149bb0] hover:shadow-[0_0_20px_rgba(20,155,176,0.2)]",
       ghost:
-        "bg-transparent text-[#535862] hover:bg-neutral-100 hover:text-[#181d27]",
+        "bg-transparent text-neutral-600 hover:bg-neutral-100 hover:text-[#181d27]",
     };
 
     const sizes = {
@@ -50,9 +50,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(baseStyles, variants[variant], sizes[size], className)}
         {...props}
       >
-        {leftIcon && <span className="shrink-0">{leftIcon}</span>}
-        {children}
-        {rightIcon && <span className="shrink-0">{rightIcon}</span>}
+        {leftIcon && (
+          <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
+            {leftIcon}
+          </span>
+        )}
+        <span className="relative z-10">{children}</span>
+        {rightIcon && (
+          <span className="shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+            {rightIcon}
+          </span>
+        )}
       </button>
     );
   }

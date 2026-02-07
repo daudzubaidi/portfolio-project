@@ -5,57 +5,56 @@ import { useEffect, useRef, useState } from "react";
 
 const profileImage =
   "/figma-assets/0fc6018c3052221941b352de43dc34d8a88c400e.png";
-const messageIcon = "/figma-assets/690fcb570bc73da69435a3a447c6f5dd914b2741.svg";
+const messageIcon =
+  "/figma-assets/690fcb570bc73da69435a3a447c6f5dd914b2741.svg";
 const messageIconActive =
   "/figma-assets/c04c2f130ab8b9bfe8dd80a91547f87d6eea2988.svg";
 
 interface FAQItem {
   question: string;
   answer: string;
-  active?: boolean;
 }
 
 const faqs: FAQItem[] = [
   {
-    question: "Do you work on freelance or remote projects?",
+    question: "How do you ensure projects ship on time?",
     answer:
-      "Yes, I'm open to freelance and remote opportunities. I enjoy working with clients globally and can adapt to different time zones and communication styles.",
+      "I break down work into measurable milestones and communicate blockers early — not when it's too late. At Hijra Alami, I delivered a core banking migration that saved 95% operational costs, on schedule.",
   },
   {
-    question: "What technologies do you work with?",
+    question: "How do you handle remote collaboration?",
     answer:
-      "I mainly work with HTML, CSS, JavaScript, and frameworks like React, Next.js, and Vue. I also have experience using Tailwind CSS, TypeScript, and working with APIs.",
-    active: true,
+      "Currently working with a Japan-based team at LakeSuccess Co., Ltd. I'm disciplined with async communication, clear documentation, and making sure nothing blocks progress across timezones.",
   },
   {
-    question: "Can you convert Figma or Sketch designs into code?",
+    question: "What if requirements change mid-project?",
     answer:
-      "Absolutely! I specialize in pixel-perfect conversion from design files to responsive, production-ready code. I pay close attention to spacing, typography, and animations.",
+      "It happens. I focus on understanding the WHY behind changes, then propose solutions that balance new needs with existing architecture. No drama, just problem-solving.",
   },
   {
-    question: "Do you collaborate with backend developers or teams?",
+    question: "How much supervision do you need?",
     answer:
-      "Yes, I work well with backend developers and cross-functional teams. I'm familiar with REST APIs, GraphQL, and can integrate frontend with various backend services.",
+      "Minimal. Give me the problem and context, I'll figure out the solution. I ask smart questions upfront, then execute independently. You'll get updates, not excuses.",
   },
   {
-    question: "Are you available for full-time roles?",
+    question: "What makes you different?",
     answer:
-      "I'm currently open to both full-time positions and contract work. Feel free to reach out to discuss your specific needs and how I can contribute to your team.",
+      "I've shipped production systems in regulated industries — banking, fintech, healthcare. I understand that code is just a means to an end. The real job is solving business problems.",
   },
   {
-    question: "Do you help with website maintenance after launch?",
+    question: "Can you handle the entire development process?",
     answer:
-      "Yes, I can provide ongoing support, updates, and performance monitoring to keep your site healthy after release.",
+      "Yes. From understanding requirements, translating Figma to code, API integration, testing with Jest & Playwright, to deployment. I own the full cycle, not just pieces of it.",
   },
   {
-    question: "How do you handle handoff from design to code?",
+    question: "What's your track record?",
     answer:
-      "I translate designs into clean, reusable components with careful attention to spacing, typography, and responsive behavior.",
+      "95% cost reduction at Hijra Alami. 40% fewer bugs through automated testing. 30% faster page loads. These aren't just numbers — they're business impact I delivered.",
   },
   {
-    question: "Can you optimize existing pages for better performance?",
+    question: "Why should I hire you over other developers?",
     answer:
-      "Absolutely. I focus on Core Web Vitals, asset optimization, and code improvements to boost speed and UX.",
+      "Because I don't just write code — I understand your users, your business constraints, and what success looks like. 7 years across banking, fintech & healthcare taught me that.",
   },
 ];
 
@@ -63,6 +62,7 @@ export function FAQ() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const updateScrollState = () => {
     const container = scrollContainerRef.current;
@@ -77,8 +77,7 @@ export function FAQ() {
     if (!container) return;
     const firstCard = container.firstElementChild as HTMLElement | null;
     const styles = window.getComputedStyle(container);
-    const gapValue =
-      parseFloat(styles.columnGap || styles.gap || "0") || 0;
+    const gapValue = parseFloat(styles.columnGap || styles.gap || "0") || 0;
     const cardWidth = firstCard?.offsetWidth ?? 0;
     const scrollAmount = cardWidth + gapValue;
 
@@ -99,16 +98,16 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="dark-section px-[20px] py-[40px] lg:py-[80px] lg:px-[120px]"
+      className="dark-section px-[20px] py-[40px] lg:px-[120px] lg:py-[80px]"
     >
-      <div className="max-w-[1200px] mx-auto flex flex-col gap-[24px] lg:gap-[48px]">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-[24px] lg:gap-[48px]">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-[25px] lg:gap-0 w-full">
-          <div className="flex flex-col gap-[8px] w-full lg:w-[534.5px]">
-            <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
+        <div className="flex w-full flex-col justify-between gap-[25px] lg:flex-row lg:items-center lg:gap-0">
+          <div className="flex w-full flex-col gap-[8px] lg:w-[534.5px]">
+            <h2 className="type-display-mobile font-bold text-white lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
               Still Got Questions?
             </h2>
-            <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+            <p className="type-body-sm font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
               I&apos;ve listed answers to questions I often get as a frontend
               developer.
             </p>
@@ -119,8 +118,8 @@ export function FAQ() {
               type="button"
               onClick={() => scroll("prev")}
               disabled={!canScrollPrev}
-              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] flex items-center justify-center p-[8px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
-                canScrollPrev ? "text-[#fdfdfd]" : "text-[#252b37]"
+              className={`border-stroke-700 flex h-[40px] w-[118px] items-center justify-center border p-[8px] text-[14px] leading-[28px] font-semibold lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
+                canScrollPrev ? "text-neutral-25" : "text-neutral-800"
               }`}
             >
               Prev
@@ -129,8 +128,8 @@ export function FAQ() {
               type="button"
               onClick={() => scroll("next")}
               disabled={!canScrollNext}
-              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] flex items-center justify-center p-[8px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
-                canScrollNext ? "text-[#fdfdfd]" : "text-[#252b37]"
+              className={`border-stroke-700 flex h-[40px] w-[118px] items-center justify-center border p-[8px] text-[14px] leading-[28px] font-semibold lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
+                canScrollNext ? "text-neutral-25" : "text-neutral-800"
               }`}
             >
               Next
@@ -141,28 +140,28 @@ export function FAQ() {
         <div
           ref={scrollContainerRef}
           onScroll={updateScrollState}
-          className="flex w-full gap-[20px] items-start overflow-x-auto scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:flex-row md:flex-wrap md:items-stretch md:justify-start lg:flex-nowrap lg:items-center"
+          className="flex w-full items-start gap-[20px] overflow-x-auto scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] md:flex-row md:flex-wrap md:items-stretch md:justify-start lg:flex-nowrap lg:items-center [&::-webkit-scrollbar]:hidden"
         >
-          {faqs.map((faq) =>
-            faq.active ? (
+          {faqs.map((faq, index) =>
+            index === activeIndex ? (
               <div
                 key={faq.question}
-                className="bg-[#075864] border border-[#22252b] flex flex-col h-[356px] items-start justify-between p-[15px] shrink-0 w-full sm:w-[379px] lg:h-[466px] lg:p-[20px] lg:w-[379px]"
+                className="border-stroke-700 flex h-[356px] w-full shrink-0 flex-col items-start justify-between border bg-[#075864] p-[15px] transition-all duration-300 sm:w-[379px] lg:h-[466px] lg:w-[379px] lg:p-[20px]"
               >
-                <div className="flex items-start justify-between w-full">
-                  <div className="relative rounded-[100px] shrink-0 size-[80px] bg-[#149bb0] overflow-hidden">
-                    <div className="absolute left-[calc(50%+3px)] top-[4px] h-[90px] w-[74.694px] -translate-x-1/2">
-                      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="flex w-full items-start justify-between">
+                  <div className="bg-brand-500 relative size-[80px] shrink-0 overflow-hidden rounded-[100px]">
+                    <div className="absolute top-[4px] left-[calc(50%+3px)] h-[90px] w-[74.694px] -translate-x-1/2">
+                      <div className="pointer-events-none absolute inset-0 overflow-hidden">
                         <img
                           src={profileImage}
                           alt=""
-                          className="absolute h-full left-[-11.31%] max-w-none top-0 w-[120.49%]"
+                          className="absolute top-0 left-[-11.31%] h-full w-[120.49%] max-w-none"
                           aria-hidden="true"
                         />
                       </div>
                     </div>
                   </div>
-                  <div className="relative shrink-0 size-[40px]">
+                  <div className="relative size-[40px] shrink-0">
                     <img
                       src={messageIconActive}
                       alt=""
@@ -172,21 +171,23 @@ export function FAQ() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-[10px] items-start justify-center w-full text-[#fdfdfd] lg:gap-[12px]">
-                  <h3 className="text-[24px] font-semibold leading-[36px] tracking-[-0.96px] w-full lg:text-[28px] lg:leading-[38px] lg:tracking-[-1.12px]">
+                <div className="text-neutral-25 flex w-full flex-col items-start justify-center gap-[10px] lg:gap-[12px]">
+                  <h3 className="w-full text-[24px] leading-[36px] font-semibold tracking-[-0.96px] lg:text-[28px] lg:leading-[38px] lg:tracking-[-1.12px]">
                     {faq.question}
                   </h3>
-                  <p className="text-[14px] font-medium leading-[28px] w-full lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+                  <p className="w-full text-[14px] leading-[28px] font-medium lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
                     {faq.answer}
                   </p>
                 </div>
               </div>
             ) : (
-              <div
+              <button
+                type="button"
                 key={faq.question}
-                className="border border-[#22252b] flex flex-col h-[356px] items-start justify-between p-[15px] shrink-0 w-full sm:w-[252px] lg:h-[466px] lg:p-[20px] lg:w-[252px]"
+                onClick={() => setActiveIndex(index)}
+                className="border-stroke-700 flex h-[356px] w-full shrink-0 cursor-pointer flex-col items-start justify-between border p-[15px] text-left transition-all duration-300 hover:border-[#149bb0]/50 hover:bg-[#075864]/20 sm:w-[252px] lg:h-[466px] lg:w-[252px] lg:p-[20px]"
               >
-                <div className="relative shrink-0 size-[40px]">
+                <div className="relative size-[40px] shrink-0">
                   <img
                     src={messageIcon}
                     alt=""
@@ -194,12 +195,12 @@ export function FAQ() {
                     aria-hidden="true"
                   />
                 </div>
-                <div className="flex flex-col items-start justify-center w-full">
-                  <h3 className="text-[24px] font-semibold leading-[36px] tracking-[-0.96px] text-[#fdfdfd] w-full lg:text-[28px] lg:leading-[38px] lg:tracking-[-1.12px]">
+                <div className="flex w-full flex-col items-start justify-center">
+                  <h3 className="text-neutral-25 w-full text-[24px] leading-[36px] font-semibold tracking-[-0.96px] lg:text-[28px] lg:leading-[38px] lg:tracking-[-1.12px]">
                     {faq.question}
                   </h3>
                 </div>
-              </div>
+              </button>
             )
           )}
         </div>

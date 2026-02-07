@@ -3,13 +3,13 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "React Expert",
-  "Pixel Perfect",
-  "TypeScript Proficiency",
-  "Clean, Maintainable Code",
-  "Performance Optimization",
-  "Responsive Website",
-  "UI Design Proficiency (Figma)",
+  "Full Project Ownership (Requirement → Production)",
+  "7+ Years in High-Stakes Industries",
+  "I Deliver Outcomes, Not Just Code",
+  "Proven: 95% Cost Reduction Achieved",
+  "User-Focused: I Build What Users Need",
+  "Quality Track Record: 40% Fewer Bugs",
+  "Clear Communication Across Teams",
 ];
 
 // Check icon - EXACT from Figma SVG export
@@ -24,7 +24,12 @@ const CheckIcon = ({ className = "" }: { className?: string }) => (
       d="M33.5735 30.426C39.3316 25.138 39.7132 16.184 34.4257 10.4259C29.1383 4.66784 20.1841 4.28616 14.426 9.57368C8.66789 14.8612 8.28621 23.8154 13.5737 29.5735C18.8612 35.3316 27.8154 35.7132 33.5735 30.426Z"
       fill="white"
     />
-    <rect width="17.3096" height="17.3096" transform="translate(16.0664 11.54)" fill="white" />
+    <rect
+      width="17.3096"
+      height="17.3096"
+      transform="translate(16.0664 11.54)"
+      fill="white"
+    />
     <path
       d="M30.4909 15.8672L22.5573 23.8008L18.9512 20.1947"
       stroke="#075864"
@@ -42,23 +47,23 @@ const CrossIcon = ({ className = "" }: { className?: string }) => (
     <img
       src="/images/skills/other-cross-bg.svg"
       alt=""
-      className="absolute left-[5.85px] top-[5.85px] size-[28.31px]"
+      className="absolute top-[5.85px] left-[5.85px] size-[28.31px]"
     />
     {/* eslint-disable-next-line @next/next/no-img-element */}
     <img
       src="/images/skills/other-cross-x.svg"
       alt=""
-      className="absolute left-[14px] top-[14px] size-[10.5px]"
+      className="absolute top-[14px] left-[14px] size-[10.5px]"
     />
   </div>
 );
 
 export function SkillsGrid() {
   return (
-    <section className="dark-section py-[40px] px-[16px] lg:py-[80px] lg:px-[120px] relative overflow-hidden">
+    <section className="dark-section relative px-[16px] py-[40px] lg:px-[120px] lg:py-[80px]">
       {/* Mobile background - Figma node 25448:630 */}
       <div
-        className="absolute left-0 top-[95px] h-[756px] w-full overflow-hidden pointer-events-none lg:hidden"
+        className="pointer-events-none absolute top-[95px] left-0 h-[756px] w-full overflow-hidden lg:hidden"
         aria-hidden="true"
       >
         <div
@@ -98,7 +103,7 @@ export function SkillsGrid() {
           <img
             src="/images/skills-grid-mobile-lines.svg"
             alt=""
-            className="w-full h-full"
+            className="h-full w-full"
           />
         </div>
         <div
@@ -114,14 +119,14 @@ export function SkillsGrid() {
           <img
             src="/images/skills-grid-mobile-dots.svg"
             alt=""
-            className="w-full h-full"
+            className="h-full w-full"
           />
         </div>
       </div>
 
       {/* Desktop background Section with gradient and grid - from Figma node 25448:627 */}
       <div
-        className="absolute left-0 top-[182px] w-[1440px] h-[756px] overflow-hidden pointer-events-none hidden lg:block"
+        className="pointer-events-none absolute top-[182px] left-0 hidden h-[756px] w-[1440px] overflow-hidden lg:block"
         aria-hidden="true"
       >
         {/* Gradient 1 - left=-1047, top=27, opacity=0.8 */}
@@ -164,7 +169,7 @@ export function SkillsGrid() {
           <img
             src="/images/skills-grid-1.svg"
             alt=""
-            className="w-full h-full"
+            className="h-full w-full"
           />
         </div>
         <div
@@ -180,26 +185,25 @@ export function SkillsGrid() {
           <img
             src="/images/skills-grid-2.svg"
             alt=""
-            className="w-full h-full"
+            className="h-full w-full"
           />
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-col gap-[24px] lg:gap-[48px] items-center max-w-[1440px] mx-auto">
+      <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-[24px] lg:gap-[48px]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center w-full flex flex-col gap-[8px] lg:gap-[16px]"
+          className="flex w-full flex-col gap-[8px] text-center lg:gap-[16px]"
         >
-          <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
-            Not Your Typical Frontend Developer
+          <h2 className="type-display-mobile font-bold text-white lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
+            Why Work With Me
           </h2>
-          <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
-            I care about how it looks, how it works, and how it feels — all at
-            once
+          <p className="type-body-sm font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+            7+ years of experience delivering high-quality web and mobile applications
           </p>
         </motion.div>
 
@@ -209,14 +213,14 @@ export function SkillsGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="w-full bg-black border border-[#22252b] p-[12px] lg:p-[24px]"
+          className="border-stroke-700 w-full border bg-black p-[12px] lg:p-[24px]"
         >
           <div className="flex">
             {/* Column 1 - Skills (black bg) */}
-            <div className="flex-1 flex flex-col bg-black">
+            <div className="flex flex-1 flex-col bg-black">
               {/* Header */}
-              <div className="h-[72px] flex items-center px-[12px] py-[4px] border-b border-r border-[rgba(34,37,43,1)] lg:px-[24px] lg:py-[8px]">
-                <span className="flex-1 text-[16px] font-semibold leading-[30px] tracking-[-0.48px] text-[#fdfdfd] lg:text-[18px] lg:font-normal lg:leading-[32px] lg:tracking-[-0.54px]">
+              <div className="border-stroke-700 flex h-[72px] items-center border-r border-b px-[12px] py-[4px] lg:px-[24px] lg:py-[8px]">
+                <span className="type-body-md text-neutral-25 flex-1 font-semibold lg:text-[18px] lg:leading-[32px] lg:font-normal lg:tracking-[-0.54px]">
                   Skill
                 </span>
               </div>
@@ -228,13 +232,13 @@ export function SkillsGrid() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className={`h-[72px] flex items-center px-[12px] py-[4px] border-r border-[rgba(34,37,43,1)] lg:px-[24px] lg:py-[8px] ${
+                  className={`border-stroke-700 flex h-[72px] items-center border-r px-[12px] py-[4px] lg:px-[24px] lg:py-[8px] ${
                     index === skills.length - 1
                       ? ""
-                      : "border-b border-[rgba(34,37,43,1)]"
+                      : "border-stroke-700 border-b"
                   }`}
                 >
-                  <span className="flex-1 text-[14px] font-normal leading-[28px] text-[#fdfdfd] lg:text-[18px] lg:leading-[32px] lg:tracking-[-0.54px]">
+                  <span className="type-body-sm text-neutral-25 flex-1 font-normal lg:text-[18px] lg:leading-[32px] lg:tracking-[-0.54px]">
                     {skill}
                   </span>
                 </motion.div>
@@ -242,10 +246,10 @@ export function SkillsGrid() {
             </div>
 
             {/* Column 2 - With Me (Cyan bg #149bb0) */}
-            <div className="flex flex-col bg-[#0a0d12] w-[66px] lg:flex-1 lg:w-auto lg:bg-[#149bb0]">
+            <div className="lg:bg-brand-500 flex w-[66px] flex-col bg-neutral-950 lg:w-auto lg:flex-1">
               {/* Header */}
-              <div className="h-[72px] flex items-center justify-center px-[12px] py-[8px] border-b border-r border-white/40 bg-[#075864] lg:px-[24px] lg:py-[8px] lg:bg-transparent">
-                <span className="flex-1 text-[14px] font-semibold leading-[28px] text-[#fdfdfd] lg:text-[18px] lg:font-normal lg:leading-[32px] lg:tracking-[-0.54px]">
+              <div className="flex h-[72px] items-center justify-center border-r border-b border-white/40 bg-[#075864] px-[12px] py-[8px] lg:bg-transparent lg:px-[24px] lg:py-[8px]">
+                <span className="text-neutral-25 flex-1 text-[14px] leading-[28px] font-semibold lg:text-[18px] lg:leading-[32px] lg:font-normal lg:tracking-[-0.54px]">
                   With Me
                 </span>
               </div>
@@ -257,8 +261,10 @@ export function SkillsGrid() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className={`h-[72px] flex items-center justify-center px-[12px] py-[8px] border-r border-white/40 bg-[#075864] lg:px-[24px] lg:py-[8px] lg:bg-transparent ${
-                    index === skills.length - 1 ? "" : "border-b border-white/40"
+                  className={`flex h-[72px] items-center justify-left border-r border-white/40 bg-[#075864] px-[12px] py-[8px] lg:bg-transparent lg:px-[24px] lg:py-[8px] ${
+                    index === skills.length - 1
+                      ? ""
+                      : "border-b border-white/40"
                   }`}
                 >
                   <CheckIcon />
@@ -267,10 +273,10 @@ export function SkillsGrid() {
             </div>
 
             {/* Column 3 - Other (Figma black background) */}
-            <div className="flex flex-col bg-[#22252b] w-[66px] lg:flex-1 lg:w-auto lg:bg-black">
+            <div className="bg-stroke-700 flex w-[66px] flex-col lg:w-auto lg:flex-1 lg:bg-black">
               {/* Header - text aligned left like Figma */}
-              <div className="h-[72px] flex items-center justify-center px-[12px] py-[8px] border-b border-[#22252b] bg-black lg:px-[24px] lg:py-[8px]">
-                <span className="flex-1 text-[14px] font-semibold leading-[28px] text-[#fdfdfd] lg:text-[24px] lg:font-normal lg:leading-[36px] lg:tracking-[-0.96px]">
+              <div className="border-stroke-700 flex h-[72px] items-center justify-center border-b bg-black px-[12px] py-[8px] lg:px-[24px] lg:py-[8px]">
+                <span className="text-neutral-25 flex-1 text-[14px] leading-[28px] font-semibold lg:text-[24px] lg:leading-[36px] lg:font-normal lg:tracking-[-0.96px]">
                   Other
                 </span>
               </div>
@@ -282,10 +288,10 @@ export function SkillsGrid() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className={`h-[72px] flex items-center justify-center px-[12px] py-[8px] bg-black ${
+                  className={`flex h-[72px] items-center justify-left bg-black px-[12px] py-[8px] ${
                     index === skills.length - 1
                       ? ""
-                      : "border-b border-[#22252b]"
+                      : "border-stroke-700 border-b"
                   } lg:px-[24px] lg:py-[8px]`}
                 >
                   <CrossIcon className="scale-[0.8] lg:scale-100" />

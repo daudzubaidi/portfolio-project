@@ -1,7 +1,8 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useId } from "react";
 
 const SUCCESS_GRID_LINES = "/images/contact/grid-lines.svg";
 const SUCCESS_GRID_DOTS = "/images/contact/grid-dots.svg";
@@ -37,6 +38,8 @@ interface ModalProps {
 
 export function Modal({ isOpen, onClose, type, title, message }: ModalProps) {
   const isSuccess = type === "success";
+  const titleId = useId();
+  const messageId = useId();
 
   // Close on Escape key
   useEffect(() => {
@@ -72,41 +75,45 @@ export function Modal({ isOpen, onClose, type, title, message }: ModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-[rgba(0,0,0,0.6)] z-50"
+            className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.6)]"
           />
 
           {/* Modal - Click inside won't close */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+          <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className={`relative w-full bg-[#000000] border border-[#22252b] pointer-events-auto ${
+              className={`border-stroke-700 pointer-events-auto relative w-full border bg-[#000000] ${
                 isSuccess
                   ? "max-w-[520px] overflow-hidden"
                   : "max-w-[518px] rounded-lg shadow-xl"
               }`}
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
+              aria-describedby={messageId}
             >
               {isSuccess ? (
                 <div className="flex w-full flex-col">
                   <div className="relative flex w-full items-center justify-center overflow-hidden px-[8px] py-[40px]">
-                    <div className="absolute left-[-4px] top-[7px] h-[246px] w-[532.602px] mix-blend-soft-light opacity-80">
+                    <div className="absolute top-[7px] left-[-4px] h-[246px] w-[532.602px] opacity-80 mix-blend-soft-light">
                       <img
                         src={SUCCESS_GRID_DOTS}
                         alt=""
                         className="block h-full w-full max-w-none"
                       />
                     </div>
-                    <div className="absolute left-[-0.42px] top-[10.58px] h-[238.835px] w-[525.437px] mix-blend-soft-light opacity-70">
+                    <div className="absolute top-[10.58px] left-[-0.42px] h-[238.835px] w-[525.437px] opacity-70 mix-blend-soft-light">
                       <img
                         src={SUCCESS_GRID_LINES}
                         alt=""
                         className="block h-full w-full max-w-none"
                       />
                     </div>
-                    <div className="absolute left-1/2 top-[-245px] h-[457px] w-[685.944px] -translate-x-1/2 -scale-y-100 opacity-80">
+                    <div className="absolute top-[-245px] left-1/2 h-[457px] w-[685.944px] -translate-x-1/2 -scale-y-100 opacity-80">
                       <div
                         className="h-full w-full"
                         style={{
@@ -130,16 +137,22 @@ export function Modal({ isOpen, onClose, type, title, message }: ModalProps) {
 
                   <div className="flex w-full flex-col items-center gap-[32px] px-[32px] pt-[32px] pb-[40px] text-center">
                     <div className="flex w-full flex-col items-center gap-[8px]">
-                      <p className="text-[24px] font-bold leading-[36px] text-[#fdfdfd]">
+                      <p
+                        id={titleId}
+                        className="text-neutral-25 text-[24px] leading-[36px] font-bold"
+                      >
                         {title}
                       </p>
-                      <p className="text-[16px] font-medium leading-[30px] tracking-[-0.48px] text-[#a4a7ae]">
+                      <p
+                        id={messageId}
+                        className="type-body-md font-medium text-neutral-400"
+                      >
                         {message}
                       </p>
                     </div>
                     <button
                       onClick={onClose}
-                      className="flex h-[48px] w-full items-center justify-center gap-[4px] rounded-full bg-[#149bb0] text-[14px] font-bold leading-[28px] text-white"
+                      className="bg-brand-500 flex h-[48px] w-full items-center justify-center gap-[4px] rounded-full text-[14px] leading-[28px] font-bold text-white"
                     >
                       Back to Home
                     </button>
@@ -148,14 +161,14 @@ export function Modal({ isOpen, onClose, type, title, message }: ModalProps) {
               ) : (
                 <div className="flex w-full flex-col">
                   <div className="relative flex w-full items-center justify-center overflow-hidden px-[8px] py-[40px]">
-                    <div className="absolute left-[-0.42px] top-[10.58px] h-[238.835px] w-[525.437px] mix-blend-soft-light opacity-70">
+                    <div className="absolute top-[10.58px] left-[-0.42px] h-[238.835px] w-[525.437px] opacity-70 mix-blend-soft-light">
                       <img
                         src={ERROR_GRID_LINES}
                         alt=""
                         className="block h-full w-full max-w-none"
                       />
                     </div>
-                    <div className="absolute left-1/2 top-[-245px] h-[457px] w-[685.944px] -translate-x-1/2 -scale-y-100 opacity-80">
+                    <div className="absolute top-[-245px] left-1/2 h-[457px] w-[685.944px] -translate-x-1/2 -scale-y-100 opacity-80">
                       <div
                         className="h-full w-full"
                         style={{
@@ -171,16 +184,22 @@ export function Modal({ isOpen, onClose, type, title, message }: ModalProps) {
 
                   <div className="flex w-full flex-col items-center gap-[32px] px-[32px] pt-[32px] pb-[40px] text-center">
                     <div className="flex w-full flex-col items-center gap-[8px]">
-                      <p className="text-[24px] font-bold leading-[36px] text-[#fdfdfd]">
+                      <p
+                        id={titleId}
+                        className="text-neutral-25 text-[24px] leading-[36px] font-bold"
+                      >
                         {title}
                       </p>
-                      <p className="text-[16px] font-medium leading-[30px] tracking-[-0.48px] text-[#a4a7ae]">
+                      <p
+                        id={messageId}
+                        className="type-body-md font-medium text-neutral-400"
+                      >
                         {message}
                       </p>
                     </div>
                     <button
                       onClick={onClose}
-                      className="flex h-[48px] w-full items-center justify-center gap-[4px] rounded-full bg-[#149bb0] text-[14px] font-bold leading-[28px] text-white"
+                      className="bg-brand-500 flex h-[48px] w-full items-center justify-center gap-[4px] rounded-full text-[14px] leading-[28px] font-bold text-white"
                     >
                       Try Again
                     </button>

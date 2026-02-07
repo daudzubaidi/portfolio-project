@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const services = [
-  "App Development",
-  "Website Development",
-  "Pixel Perfect",
-  "React Expert",
+  "Web Development",
+  "Mobile Development",
+  "React & Vue Expert",
+  "API Integration",
 ];
 
 // Pre-calculated starburst line coordinates to avoid hydration mismatch
@@ -33,7 +33,7 @@ const StarIcon = () => (
     viewBox="0 0 60 60"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="shrink-0 w-[38px] h-[38px] lg:w-[60px] lg:h-[60px]"
+    className="h-[38px] w-[38px] shrink-0 lg:h-[60px] lg:w-[60px]"
     aria-hidden="true"
   >
     <g opacity="0.6">
@@ -57,19 +57,19 @@ const StarIcon = () => (
 
 export function ServicesBar() {
   return (
-    <section className="bg-[#149bb0] overflow-hidden">
+    <section className="bg-brand-500 overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-      className="flex items-center gap-[14px] px-[24px] py-[12px] h-[48px] lg:py-[24px] lg:h-[108px] overflow-x-auto scrollbar-hide"
-    >
-        <div className="flex items-center gap-[14px] min-w-max mx-auto">
+        className="scrollbar-hide flex h-[48px] items-center gap-[14px] overflow-x-auto px-[24px] py-[12px] lg:h-[108px] lg:py-[24px]"
+      >
+        <div className="mx-auto flex min-w-max items-center gap-[14px]">
           {services.map((service, index) => (
             <div key={service} className="flex items-center gap-[14px]">
               {index > 0 && <StarIcon />}
-              <span className="text-[20px] lg:text-[40px] font-bold text-white leading-[34px] lg:leading-[56px] tracking-[-2px] whitespace-nowrap">
+              <span className="text-[20px] leading-[34px] font-bold tracking-[-2px] whitespace-nowrap text-white lg:text-[40px] lg:leading-[56px]">
                 {service}
               </span>
             </div>

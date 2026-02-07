@@ -9,10 +9,13 @@ import { Experience } from "@/components/sections/Experience";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
+import { Footer } from "@/components/sections/Footer";
+import { CursorGlow } from "@/components/ui/CursorGlow";
 
 export default function Home() {
   return (
     <>
+      <CursorGlow />
       <Navbar />
       <main>
         <Hero />
@@ -26,6 +29,7 @@ export default function Home() {
         <FAQ />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

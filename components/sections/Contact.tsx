@@ -7,17 +7,22 @@ import { Modal } from "@/components/ui/Modal";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const mailIcon =
-  "/figma-assets/b31c04cae2eb86c2c2951285b8d67b99105ed0ca.svg";
+const mailIcon = "/figma-assets/b31c04cae2eb86c2c2951285b8d67b99105ed0ca.svg";
 const lineDivider =
   "/figma-assets/00d82643ad8035b396128a00eb2672c1c992361a.svg";
 
 const socialLinks = [
   {
-    href: "https://facebook.com",
-    alt: "Facebook",
-    src: "/figma-assets/98f2408fd396a23508b0ec689fa6e4e35a0c822c.svg",
-    inset: "25.11% 35.93% 24.85% 37%",
+    href: "https://linkedin.com/in/daud-abdilah-zubaidi",
+    alt: "LinkedIn",
+    src: "/figma-assets/ac50851306f497748af72e411dbef2db6b08f907.svg",
+    inset: "30.23% 29.16% 29.73% 29%",
+  },
+  {
+    href: "mailto:daud.developer@gmail.com",
+    alt: "Email",
+    src: "/figma-assets/1dc171d97d53fbd46a9e54a2e685d158dacd3022.svg",
+    inset: "25.1% 24.97% 24.85% 25%",
   },
   {
     href: "https://instagram.com",
@@ -26,16 +31,10 @@ const socialLinks = [
     inset: "25.1% 24.97% 24.85% 25%",
   },
   {
-    href: "https://linkedin.com",
-    alt: "LinkedIn",
-    src: "/figma-assets/ac50851306f497748af72e411dbef2db6b08f907.svg",
-    inset: "30.23% 29.16% 29.73% 29%",
-  },
-  {
-    href: "https://tiktok.com",
-    alt: "TikTok",
-    src: "/figma-assets/5e9afde6c4f2a45f512943150fec87213664b9b2.svg",
-    inset: "25.12% 29.01% 25.73% 28.4%",
+    href: "https://facebook.com",
+    alt: "Facebook",
+    src: "/figma-assets/98f2408fd396a23508b0ec689fa6e4e35a0c822c.svg",
+    inset: "25.11% 35.93% 24.85% 37%",
   },
 ];
 
@@ -79,7 +78,8 @@ export function Contact() {
           isOpen: true,
           type: "success",
           title: "Thanks for Reaching Out!",
-          message: "I've received your message and will get back to you shortly.",
+          message:
+            "I've received your message and will get back to you shortly.",
         });
         // Reset form
         setFormData({ name: "", email: "", message: "" });
@@ -89,8 +89,7 @@ export function Contact() {
           isOpen: true,
           type: "error",
           title: "Message Not Sent",
-          message:
-            "Something broke along the way. Let's try resending it.",
+          message: "Something broke along the way. Let's try resending it.",
         });
       }
     } catch (error) {
@@ -100,8 +99,7 @@ export function Contact() {
         isOpen: true,
         type: "error",
         title: "Message Not Sent",
-        message:
-          "Something broke along the way. Let's try resending it.",
+        message: "Something broke along the way. Let's try resending it.",
       });
     } finally {
       setIsSubmitting(false);
@@ -115,7 +113,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-black px-[20px] py-[40px] lg:bg-[#0a0d12] lg:px-[120px] lg:pt-[80px] lg:pb-[120px] lg:h-[955px]"
+      className="relative overflow-hidden bg-black px-[20px] py-[40px] lg:h-[955px] lg:bg-neutral-950 lg:px-[120px] lg:pt-[80px] lg:pb-[120px]"
       style={{
         backgroundImage:
           "linear-gradient(180deg, rgba(27, 178, 201, 0) 32.786%, #1bb2c9 109.81%)",
@@ -123,12 +121,12 @@ export function Contact() {
     >
       {/* Background glass board effect */}
       <div
-        className="absolute pointer-events-none left-[calc(50%+31.7px)] top-[415px] h-[calc(100%-415px)] w-[1276.407px] -translate-x-1/2 lg:left-0 lg:top-[245px] lg:h-[757px] lg:w-full lg:translate-x-0"
+        className="pointer-events-none absolute top-[415px] left-[calc(50%+31.7px)] h-[calc(100%-415px)] w-[1276.407px] -translate-x-1/2 lg:top-[245px] lg:left-0 lg:h-[757px] lg:w-full lg:translate-x-0"
         aria-hidden="true"
       >
         <div className="absolute inset-0 flex">
           {[...Array(19)].map((_, i) => (
-            <div key={i} className="relative flex-1 h-full">
+            <div key={i} className="relative h-full flex-1">
               <div
                 className="absolute inset-0 backdrop-blur-[44.32px]"
                 style={{
@@ -138,37 +136,38 @@ export function Contact() {
                     "inset 0px 1.773px 3.546px 0px rgba(255, 255, 255, 0.16)",
                 }}
               >
-                <div className="absolute inset-0 pointer-events-none shadow-[inset_0px_1.773px_3.546px_0px_rgba(255,255,255,0.16)]" />
+                <div className="pointer-events-none absolute inset-0 shadow-[inset_0px_1.773px_3.546px_0px_rgba(255,255,255,0.16)]" />
               </div>
             </div>
           ))}
         </div>
-        <div
-          className="absolute left-0 top-0 h-[465.357px] w-[1276.407px] bg-[linear-gradient(180deg,black_15.443%,rgba(0,0,0,0)_104.67%)] lg:inset-0 lg:h-full lg:w-full"
-        />
+        <div className="absolute top-0 left-0 h-[465.357px] w-[1276.407px] bg-[linear-gradient(180deg,black_15.443%,rgba(0,0,0,0)_104.67%)] lg:inset-0 lg:h-full lg:w-full" />
       </div>
 
-      <div className="max-w-[1200px] mx-auto flex flex-col gap-[24px] lg:flex-row lg:gap-[40px] relative z-10 w-full">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-[24px] lg:flex-row lg:gap-[40px]">
         {/* Left Column - Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:w-[580px] flex-1 min-w-0 bg-black border border-[#22252b] p-[16px] flex flex-col gap-[24px] lg:px-[24px] lg:py-[40px] lg:gap-[31px]"
+          className="border-stroke-700 flex min-w-0 flex-1 flex-col gap-[24px] border bg-black p-[16px] lg:w-[580px] lg:gap-[31px] lg:px-[24px] lg:py-[40px]"
         >
           <div className="flex flex-col gap-[8px] lg:gap-[16px]">
-            <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
-              Let’s{" "}
-              <span className="text-[#149bb0]">Build Something</span> Great
+            <h2 className="type-display-mobile font-bold text-white lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
+              Let’s <span className="text-[#149bb0]">Build Something</span>{" "}
+              Great
             </h2>
-            <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
-              Got an idea, a project, or just want to connect? I’m always
-              open to new conversations.
+            <p className="type-body-sm font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+              Got an idea, a project, or just want to connect? I’m always open
+              to new conversations.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-[16px] lg:gap-[20px]">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-[16px] lg:gap-[20px]"
+          >
             <Input
               label="Name"
               placeholder="Enter your name"
@@ -200,17 +199,14 @@ export function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-[48px] bg-white text-[#0a0d12] text-[14px] font-semibold leading-[28px] flex items-center justify-center gap-[8px] p-[8px] disabled:opacity-50 lg:h-[56px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]"
+              className="flex h-[48px] w-full items-center justify-center gap-[8px] bg-white p-[8px] text-[14px] leading-[28px] font-semibold text-[#0a0d12] disabled:opacity-50 lg:h-[56px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]"
             >
-              <span className="relative w-[24px] h-[24px] overflow-hidden">
-                <span
-                  className="absolute"
-                  style={{ inset: "17.71% 5.21%" }}
-                >
+              <span className="relative h-[24px] w-[24px] overflow-hidden">
+                <span className="absolute" style={{ inset: "17.71% 5.21%" }}>
                   <img
                     src={mailIcon}
                     alt=""
-                    className="block w-full h-full"
+                    className="block h-full w-full"
                     aria-hidden="true"
                   />
                 </span>
@@ -226,70 +222,73 @@ export function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:w-[580px] flex-1 min-w-0 flex flex-col justify-between self-stretch"
+          className="flex min-w-0 flex-1 flex-col justify-between self-stretch lg:w-[580px]"
         >
-          <div className="flex flex-col gap-[24px] w-full">
+          <div className="flex w-full flex-col gap-[24px]">
             {/* Address */}
             <div className="flex flex-col gap-[2px] lg:gap-[12px]">
-              <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:font-semibold lg:leading-[34px] lg:tracking-normal">
+              <h3 className="text-neutral-25 text-[16px] leading-[30px] font-bold tracking-[-0.32px] lg:text-[20px] lg:leading-[34px] lg:font-semibold lg:tracking-normal">
                 Address
               </h3>
-              <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
-                Jakarta, Indonesia
+              <p className="type-body-sm font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+                Bandung, Indonesia
               </p>
             </div>
 
             {/* Divider */}
-            <div className="w-full h-px">
+            <div className="h-px w-full">
               <img
                 src={lineDivider}
                 alt=""
-                className="block w-full h-full"
+                className="block h-full w-full"
                 aria-hidden="true"
               />
             </div>
 
             {/* Contact */}
             <div className="flex flex-col gap-[2px] lg:gap-[12px]">
-              <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:font-semibold lg:leading-[34px] lg:tracking-normal">
+              <h3 className="text-neutral-25 text-[16px] leading-[30px] font-bold tracking-[-0.32px] lg:text-[20px] lg:leading-[34px] lg:font-semibold lg:tracking-normal">
                 Contact
               </h3>
-              <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
-                (+62) 1234567890
+              <p className="type-body-sm font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+                +6285624205570
               </p>
+              <a href="mailto:daud.developer@gmail.com" className="type-body-sm font-normal text-[#149bb0] hover:underline lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+                daud.developer@gmail.com
+              </a>
             </div>
 
             {/* Divider */}
-            <div className="w-full h-px">
+            <div className="h-px w-full">
               <img
                 src={lineDivider}
                 alt=""
-                className="block w-full h-full"
+                className="block h-full w-full"
                 aria-hidden="true"
               />
             </div>
 
             {/* Social Media */}
             <div className="flex flex-col gap-[16px] lg:gap-[20px]">
-              <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:font-semibold lg:leading-[34px] lg:tracking-normal">
+              <h3 className="text-neutral-25 text-[16px] leading-[30px] font-bold tracking-[-0.32px] lg:text-[20px] lg:leading-[34px] lg:font-semibold lg:tracking-normal">
                 Social Media
               </h3>
-              <div className="flex items-center gap-[12px] h-[40px] w-[208px]">
+              <div className="flex h-[40px] w-[208px] items-center gap-[12px]">
                 {socialLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-[40px] h-[40px] rounded-full border border-[rgba(253,253,253,0.1)] overflow-hidden lg:border-[#252b37]"
+                    className="flex h-[40px] w-[40px] items-center justify-center overflow-hidden rounded-full border border-[rgba(253,253,253,0.1)] lg:border-[#252b37]"
                     aria-label={link.alt}
                   >
-                    <div className="relative w-[40px] h-[40px]">
+                    <div className="relative h-[40px] w-[40px]">
                       <div className="absolute" style={{ inset: link.inset }}>
                         <img
                           src={link.src}
                           alt=""
-                          className="block w-full h-full"
+                          className="block h-full w-full"
                           aria-hidden="true"
                         />
                       </div>
@@ -307,7 +306,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h2 className="text-[40px] font-bold text-white leading-[56px] tracking-[-2px] lg:text-[56px] lg:leading-[68px] lg:tracking-[-1.12px]">
+            <h2 className="text-[40px] leading-[56px] font-bold tracking-[-2px] text-white lg:text-[56px] lg:leading-[68px] lg:tracking-[-1.12px]">
               GET IN TOUCH
             </h2>
           </motion.div>

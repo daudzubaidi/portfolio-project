@@ -1,12 +1,14 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface JobCardProps {
   title: string;
   period: string;
   description: string;
   company: string;
+  tech?: string;
   companyLogo?: React.ReactNode;
   className?: string;
 }
@@ -16,7 +18,7 @@ const WorkIcon = () => (
   <img
     src="/images/experience/icon-work.svg"
     alt=""
-    className="w-[24px] h-[24px]"
+    className="h-[24px] w-[24px]"
   />
 );
 
@@ -25,48 +27,71 @@ export function JobCard({
   period,
   description,
   company,
+  tech,
   companyLogo,
   className,
 }: JobCardProps) {
   return (
-    <div
+    <motion.div
+      whileHover={{ y: -4, borderColor: "rgba(20, 155, 176, 0.5)" }}
+      transition={{ duration: 0.3 }}
       className={cn(
-        "relative flex flex-col gap-[20px] p-[16px] border border-[#22252b] lg:p-[20px]",
+        "border-stroke-700 group relative flex flex-col gap-[20px] border bg-neutral-950/50 p-[16px] backdrop-blur-sm transition-all duration-300 hover:bg-neutral-900/50 lg:p-[20px]",
         className
       )}
     >
-      {/* Accent bar */}
-      <div className="absolute left-[-1px] top-[23px] w-[3px] h-[68px] bg-[#149bb0]" />
+      {/* Accent bar with glow effect */}
+      <div className="absolute top-[23px] left-[-1px] h-[68px] w-[3px] overflow-visible">
+        <div className="h-full w-full bg-[#149bb0]" />
+        <div className="absolute inset-0 bg-[#149bb0] opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70" />
+      </div>
 
       {/* Header */}
-      <div className="flex items-center justify-between w-full">
-        <div className="flex flex-col gap-[4px] w-[194px]">
-          <h3 className="text-[16px] font-bold leading-[30px] tracking-[-0.32px] text-[#fdfdfd] lg:text-[20px] lg:leading-[34px] lg:tracking-normal">
+      <div className="flex w-full items-start justify-between gap-4">
+        <div className="flex flex-1 flex-col gap-[4px]">
+          <h3 className="text-neutral-25 text-[16px] leading-[30px] font-bold tracking-[-0.32px] transition-colors duration-300 group-hover:text-[#149bb0] lg:text-[20px] lg:leading-[34px] lg:tracking-normal">
             {title}
           </h3>
-          <p className="text-[14px] font-normal leading-[28px] text-[#fdfdfd] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+          <p className="type-body-sm text-[#149bb0] font-medium lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
             {period}
           </p>
         </div>
-        <div className="w-[24px] h-[24px]">
+        <div className="h-[24px] w-[24px] transition-transform duration-300 group-hover:scale-110">
           <WorkIcon />
         </div>
       </div>
 
+      {/* Company name */}
+      <div className="flex items-center gap-2">
+        <span className="text-[14px] font-semibold text-white">{company}</span>
+      </div>
+
       {/* Divider */}
-      <div className="w-full h-px bg-[#22252b]" />
+      <div className="bg-stroke-700 h-px w-full transition-colors duration-300 group-hover:bg-[#149bb0]/30" />
 
       {/* Description */}
-      <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] min-w-full lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+      <p className="type-body-sm min-w-full font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
         {description}
       </p>
 
+      {/* Tech Stack */}
+      {tech && (
+        <div className="flex flex-wrap gap-2">
+          {tech.split(", ").map((t) => (
+            <span
+              key={t}
+              className="rounded-full border border-[#149bb0]/30 bg-[#149bb0]/10 px-3 py-1 text-[12px] font-medium text-[#149bb0] transition-all duration-300 group-hover:border-[#149bb0]/50 group-hover:bg-[#149bb0]/20"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      )}
+
       {/* Company Logo */}
-      <div className="relative w-[128px] h-[48px] overflow-clip">
-        {companyLogo || (
-          <span className="text-2xl font-bold text-white">{company}</span>
-        )}
+      <div className="relative h-[48px] w-[128px] overflow-clip">
+        {companyLogo || null}
       </div>
-    </div>
+    </motion.div>
   );
 }

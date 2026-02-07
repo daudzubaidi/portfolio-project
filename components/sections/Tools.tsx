@@ -5,18 +5,32 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 const tools = [
-  { name: "HTML", percentage: 100, icon: "/images/tech-html-new.svg" },
-  { name: "CSS", percentage: 90, icon: "/images/tech-css-new.svg" },
-  { name: "Javascripct", percentage: 90, icon: "/images/tech-js-new.svg" },
-  { name: "Typescript", percentage: 80, icon: "/images/tech-ts-new.svg" },
-  { name: "React", percentage: 85, icon: "/images/tech-react.svg" },
-  { name: "Next.js", percentage: 85, icon: "/images/tech-nextjs.svg" },
-  { name: "Vue", percentage: 75, icon: "/images/tech-vue.svg" },
-  { name: "Svelte", percentage: 70, icon: "/images/tech-svelte.svg" },
-  { name: "Tailwind CSS", percentage: 90, icon: "/images/tech-tailwind.svg" },
-  { name: "Node.js", percentage: 80, icon: "/images/tech-nodejs.svg" },
-  { name: "Sequalize", percentage: 80, icon: "/images/tech-sequelize-new.svg" },
-  { name: "Mongo DB", percentage: 75, icon: "/images/tech-mongodb-new.svg" },
+  // Frontend Development
+  { name: "React.js", percentage: 95, icon: "/images/tech-react.svg", category: "Frontend" },
+  { name: "Next.js", percentage: 90, icon: "/images/tech-nextjs.svg", category: "Frontend" },
+  { name: "Vue.js", percentage: 90, icon: "/images/tech-vue.svg", category: "Frontend" },
+  { name: "Nuxt.js", percentage: 85, icon: "/images/tech-vue.svg", category: "Frontend" },
+  { name: "Tailwind CSS", percentage: 95, icon: "/images/tech-tailwind.svg", category: "Frontend" },
+  { name: "Chakra UI", percentage: 85, icon: "/images/tech-react.svg", category: "Frontend" },
+  { name: "Bootstrap", percentage: 90, icon: "/images/tech-css-new.svg", category: "Frontend" },
+  // Backend Development
+  { name: "Java Spring", percentage: 75, icon: "/images/tech-js-new.svg", category: "Backend" },
+  { name: "PHP CodeIgniter", percentage: 80, icon: "/images/tech-html-new.svg", category: "Backend" },
+  { name: "Node.js", percentage: 80, icon: "/images/tech-nodejs.svg", category: "Backend" },
+  // Mobile Development
+  { name: "React Native", percentage: 80, icon: "/images/tech-react.svg", category: "Mobile" },
+  { name: "Android Studio", percentage: 75, icon: "/images/tech-js-new.svg", category: "Mobile" },
+  // Testing & Debugging
+  { name: "Jest", percentage: 85, icon: "/images/tech-ts-new.svg", category: "Testing" },
+  { name: "Playwright", percentage: 80, icon: "/images/tech-ts-new.svg", category: "Testing" },
+  { name: "Sentry", percentage: 80, icon: "/images/tech-js-new.svg", category: "Testing" },
+  { name: "GCP Logging", percentage: 75, icon: "/images/tech-nodejs.svg", category: "Testing" },
+  // Databases
+  { name: "MySQL", percentage: 80, icon: "/images/tech-mongodb-new.svg", category: "Database" },
+  { name: "SQLite", percentage: 75, icon: "/images/tech-mongodb-new.svg", category: "Database" },
+  // Version Control
+  { name: "Git", percentage: 95, icon: "/images/tech-nodejs.svg", category: "Version Control" },
+  { name: "SVN", percentage: 70, icon: "/images/tech-nodejs.svg", category: "Version Control" },
 ];
 
 type ToolItem = (typeof tools)[number];
@@ -30,20 +44,20 @@ function ToolRow({ tool, index }: { tool: ToolItem; index: number }) {
       <div ref={rowRef} className="relative">
         {/* Loading skeleton shown before the row animates in */}
         <div
-          className={`absolute inset-0 flex items-center gap-[3px] transition-opacity duration-300 pointer-events-none ${
+          className={`pointer-events-none absolute inset-0 flex items-center gap-[3px] transition-opacity duration-300 ${
             isInView ? "opacity-0" : "opacity-100"
           }`}
           aria-hidden="true"
         >
-          <div className="flex items-center gap-[3px] w-full">
+          <div className="flex w-full items-center gap-[3px]">
             <div className="flex items-center gap-[3px]">
-              <div className="w-[60px] h-[60px] flex items-center justify-center p-[10px]">
-                <div className="w-[40px] h-[40px] rounded-full bg-[#252b37] animate-pulse" />
+              <div className="flex h-[60px] w-[60px] items-center justify-center p-[10px]">
+                <div className="h-[40px] w-[40px] animate-pulse rounded-full bg-neutral-800" />
               </div>
-              <div className="h-[14px] w-[120px] rounded-full bg-[#252b37] animate-pulse" />
+              <div className="h-[14px] w-[120px] animate-pulse rounded-full bg-neutral-800" />
             </div>
-            <div className="flex-1 flex justify-end">
-              <div className="h-[14px] w-[48px] rounded-full bg-[#252b37] animate-pulse" />
+            <div className="flex flex-1 justify-end">
+              <div className="h-[14px] w-[48px] animate-pulse rounded-full bg-neutral-800" />
             </div>
           </div>
         </div>
@@ -54,22 +68,22 @@ function ToolRow({ tool, index }: { tool: ToolItem; index: number }) {
           transition={{ duration: 0.4, delay: index * 0.05 }}
           className="relative"
         >
-          <div className="flex items-center gap-[3px] w-full">
+          <div className="flex w-full items-center gap-[3px]">
             <div className="flex items-center gap-[3px]">
               {/* Icon without circle border - per Figma */}
-              <div className="w-[60px] h-[60px] flex items-center justify-center">
+              <div className="flex h-[60px] w-[60px] items-center justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={tool.icon}
                   alt={tool.name}
-                  className="w-[35px] h-[35px] object-contain lg:w-[44px] lg:h-[44px]"
+                  className="h-[35px] w-[35px] object-contain lg:h-[44px] lg:w-[44px]"
                 />
               </div>
-              <span className="text-[16px] font-normal leading-[30px] text-white tracking-[-0.48px] text-center lg:text-[20px] lg:leading-[34px] lg:tracking-[-0.6px]">
+              <span className="text-center text-[16px] leading-[30px] font-normal tracking-[-0.48px] text-white lg:text-[20px] lg:leading-[34px] lg:tracking-[-0.6px]">
                 {tool.name}
               </span>
             </div>
-            <span className="flex-1 text-[16px] font-bold leading-[30px] text-white text-right tracking-[-0.32px] lg:text-[20px] lg:leading-[34px] lg:tracking-normal">
+            <span className="flex-1 text-right text-[16px] leading-[30px] font-bold tracking-[-0.32px] text-white lg:text-[20px] lg:leading-[34px] lg:tracking-normal">
               {tool.percentage}%
             </span>
           </div>
@@ -77,7 +91,7 @@ function ToolRow({ tool, index }: { tool: ToolItem; index: number }) {
       </div>
 
       {index < tools.length - 1 && (
-        <div className="w-full h-px bg-[#252b37] mt-[15px]" />
+        <div className="mt-[15px] h-px w-full bg-neutral-800" />
       )}
     </div>
   );
@@ -140,25 +154,24 @@ export function Tools() {
   return (
     <section
       id="skills"
-      className="dark-section py-[40px] px-4 lg:py-[80px] lg:px-[120px]"
+      className="dark-section px-4 py-[40px] lg:px-[120px] lg:py-[80px]"
     >
-      <div className="max-w-[1440px] mx-auto">
-        <div className="flex flex-col lg:flex-row gap-[24px] lg:gap-[191px]">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="flex flex-col gap-[24px] lg:flex-row lg:gap-[191px]">
           {/* Left Column - Title & CTA */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-[24px] lg:gap-0 lg:justify-between shrink-0 lg:w-[367px]"
+            className="flex shrink-0 flex-col gap-[24px] lg:w-[367px] lg:justify-between lg:gap-0"
           >
-            <div className="flex flex-col gap-[8px] lg:gap-[16px] max-w-[367px]">
-              <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
-                Tools I Use to Build
+            <div className="flex max-w-[367px] flex-col gap-[8px] lg:gap-[16px]">
+              <h2 className="type-display-mobile font-bold text-white lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
+                Technical Skills
               </h2>
-              <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] tracking-normal lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
-                From code to design — here&apos;s the tech that helps me turn
-                ideas into real products.
+              <p className="type-body-sm font-normal tracking-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+                Frontend, backend, and mobile technologies I&apos;ve mastered over 7+ years of professional experience.
               </p>
             </div>
 
@@ -166,7 +179,7 @@ export function Tools() {
               variant="secondary"
               size="md"
               leftIcon={<MailIcon />}
-              className="w-full h-[48px] p-[8px] mt-0 rounded-none text-[14px] leading-[28px] lg:h-[56px] lg:text-[16px] lg:leading-[30px]"
+              className="mt-0 h-[48px] w-full rounded-none p-[8px] text-[14px] leading-[28px] lg:h-[56px] lg:text-[16px] lg:leading-[30px]"
               onClick={() => {
                 document
                   .getElementById("contact")
@@ -183,13 +196,13 @@ export function Tools() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex gap-[24px] flex-1"
+            className="flex flex-1 gap-[24px]"
           >
             {/* Vertical scroll indicator on left (desktop only) - from Figma */}
-            <div className="hidden lg:block shrink-0">
+            <div className="hidden shrink-0 lg:block">
               <div className="relative h-[529px] w-[4px]">
-                <div className="absolute left-1/2 top-0 h-[508px] w-[1px] -translate-x-1/2 bg-[#252b37]" />
-                <div 
+                <div className="absolute top-0 left-1/2 h-[508px] w-[1px] -translate-x-1/2 bg-neutral-800" />
+                <div
                   className="absolute left-1/2 h-[193px] w-[4px] -translate-x-1/2 bg-white transition-all duration-200"
                   style={{ top: `${indicatorTop}px` }}
                 />
@@ -197,9 +210,9 @@ export function Tools() {
             </div>
 
             {/* Scrollable container with fixed height - per Figma 510px */}
-            <div 
+            <div
               ref={scrollContainerRef}
-              className="flex flex-col gap-[15px] w-full lg:w-[618px] lg:h-[510px] lg:overflow-y-auto lg:[scrollbar-width:none] lg:[-ms-overflow-style:none] lg:[&::-webkit-scrollbar]:hidden"
+              className="flex w-full flex-col gap-[15px] lg:h-[510px] lg:w-[618px] lg:overflow-y-auto lg:[-ms-overflow-style:none] lg:[scrollbar-width:none] lg:[&::-webkit-scrollbar]:hidden"
             >
               {tools.map((tool, index) => (
                 <ToolRow key={tool.name} tool={tool} index={index} />

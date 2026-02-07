@@ -5,48 +5,67 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Portofolio 1",
+    title: "E-Puskesmas Dashboard Backoffice",
     year: "2025",
-    image: "/images/portfolio/project1.jpg",
+    image: "/images/portfolio/porto1.png",
     href: "#",
+    tech: "Vue.js, Nuxt.js, Tailwind",
   },
   {
-    title: "Portofolio 2",
-    year: "2025",
-    image: "/images/portfolio/project2.jpg",
+    title: "Eiger E-commerce & Back-office",
+    year: "2023",
+    image: "/images/portfolio/porto2.png",
     href: "#",
+    tech: "Vue.js, Nuxt.js, Tailwind",
   },
   {
-    title: "Portofolio 3",
-    year: "2025",
-    image: "/images/portfolio/project3.jpg",
+    title: "Laundry Back-office System",
+    year: "2022",
+    image: "/images/portfolio/porto3.png",
     href: "#",
+    tech: "React.js",
+  },
+  {
+    title: "Coffee Machine Company Profile",
+    year: "2021",
+    image: "/images/portfolio/porto4.png",
+    href: "#",
+    tech: "PHP CodeIgniter",
+  },
+  {
+    title: "School Landing Page",
+    year: "2020",
+    image: "/images/portfolio/porto5.jpg",
+    href: "#",
+    tech: "HTML, Bootstrap",
   },
 ];
 
 export function Portfolio() {
   return (
-    <section id="projects" className="dark-section py-[40px] px-[20px] lg:py-[80px] lg:px-[120px]">
-      <div className="flex flex-col gap-[24px] lg:gap-[48px] items-center max-w-[1200px] mx-auto w-full">
+    <section
+      id="projects"
+      className="dark-section px-[20px] py-[40px] lg:px-[120px] lg:py-[80px]"
+    >
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-[24px] lg:gap-[48px]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full text-center flex flex-col gap-[8px] lg:gap-[16px]"
+          className="flex w-full flex-col gap-[8px] text-center lg:gap-[16px]"
         >
-          <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
+          <h2 className="type-display-mobile font-bold italic text-white lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
             Bridging Design and Development
           </h2>
-          <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
-            These are real projects where I implemented frontend interfaces with
-            precision and attention to detail.
+          <p className="type-body-sm font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+            These are real projects where I implemented frontend interfaces with precision and attention to detail.
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="flex flex-col md:flex-row gap-[20px]">
+        {/* Projects Grid - 3 columns on desktop, wraps to show all 5 projects */}
+        <div className="flex flex-wrap justify-center gap-[20px]">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}

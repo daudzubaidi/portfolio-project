@@ -14,15 +14,15 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="dark-section py-[32px] border-t border-[#22252b]">
+    <footer className="dark-section border-stroke-700 border-t py-[32px]">
       <div className="container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-[24px]">
+        <div className="flex flex-col items-center justify-between gap-[24px] md:flex-row">
           {/* Logo */}
           <Link
             href="/"
-            className="text-[20px] font-bold leading-[34px] text-white hover:text-[#149bb0] transition-colors"
+            className="type-title-sm hover:text-brand-500 font-bold text-white transition-colors"
           >
-            Edwin
+            Daud
           </Link>
 
           {/* Navigation */}
@@ -32,7 +32,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px] hover:text-white transition-colors"
+                    className="text-[16px] leading-[30px] font-normal tracking-[-0.48px] text-neutral-400 transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -42,8 +42,8 @@ export function Footer() {
           </nav>
 
           {/* Copyright */}
-          <p className="text-[14px] font-normal leading-[24px] text-[#717680]">
-            © {currentYear} Edwin Anderson. All rights reserved.
+          <p className="text-[14px] leading-[24px] font-normal text-[#717680]">
+            © {currentYear} Daud Abdilah Zubaidi. All rights reserved.
           </p>
         </div>
       </div>

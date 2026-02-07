@@ -9,30 +9,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Edwin Anderson | Frontend Developer",
+  title: "Daud Abdilah Zubaidi | Frontend Developer",
   description:
-    "Passionate about frontend development, I focus on crafting digital products that are visually polished, performance-optimized, and deliver a consistent experience across all platforms.",
+    "Frontend Developer with approximately 7 years of experience, specializing in web and mobile development using React.js, Vue.js, Next.js, and Nuxt.js. Committed to creating applications that perform well and provide meaningful value to users.",
   keywords: [
     "frontend developer",
     "web developer",
     "react",
     "next.js",
+    "vue.js",
+    "nuxt.js",
     "typescript",
     "portfolio",
+    "mobile development",
+    "react native",
   ],
-  authors: [{ name: "Edwin Anderson" }],
+  authors: [{ name: "Daud Abdilah Zubaidi" }],
   openGraph: {
-    title: "Edwin Anderson | Frontend Developer",
+    title: "Daud Abdilah Zubaidi | Frontend Developer",
     description:
-      "Passionate about frontend development, crafting digital products that are visually polished and performance-optimized.",
+      "Frontend Developer with 7+ years of experience, specializing in web and mobile development using React.js, Vue.js, Next.js, and Nuxt.js.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edwin Anderson | Frontend Developer",
+    title: "Daud Abdilah Zubaidi | Frontend Developer",
     description:
-      "Passionate about frontend development, crafting digital products that are visually polished and performance-optimized.",
+      "Frontend Developer with 7+ years of experience, specializing in web and mobile development using React.js, Vue.js, Next.js, and Nuxt.js.",
   },
 };
 

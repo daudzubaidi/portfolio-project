@@ -17,7 +17,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className="text-[14px] font-normal leading-[28px] text-[#fdfdfd]"
+            className="type-body-sm text-neutral-25 font-normal"
           >
             {label}
           </label>
@@ -26,11 +26,11 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={textareaId}
           className={cn(
-            "w-full h-[134px] min-h-[134px] px-[16px] py-[8px] rounded-none resize-none",
-            "bg-transparent border border-[#22252b]",
-            "text-[16px] font-medium leading-[30px] tracking-[-0.48px] text-[#fdfdfd]",
-            "placeholder:text-[16px] placeholder:font-medium placeholder:leading-[30px] placeholder:tracking-[-0.48px] placeholder:text-[#535862]",
-            "focus:outline-none focus:border-[#149bb0]",
+            "h-[134px] min-h-[134px] w-full resize-none rounded-none px-[16px] py-[8px]",
+            "border-stroke-700 border bg-transparent",
+            "type-body-md text-neutral-25 font-medium",
+            "placeholder:text-[16px] placeholder:leading-[30px] placeholder:font-medium placeholder:tracking-[-0.48px] placeholder:text-neutral-600",
+            "focus:border-brand-500 focus:outline-none",
             "transition-colors duration-200",
             error && "border-[var(--color-error-primary)]",
             className

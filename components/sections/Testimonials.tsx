@@ -9,47 +9,47 @@ const QUOTE_ICON = "/images/testimonials/quote.svg";
 const testimonialContent = {
   heading: "Trusted Voices",
   subheading:
-    "Here’s what people say about working with me — across projects, teams, and timelines.",
+    "Here's what people say about working with me — across projects, teams, and timelines.",
   cards: {
     large: {
-      stat: "8X",
-      statLabel: "More users converted after redesign",
+      stat: "95%",
+      statLabel: "Core Banking Migration: Automation Testing, Code Review, and Stability at Scale",
       quote:
-        "Working with Edwin has been a fantastic experience. His attention to detail and commitment to quality are evident in every project. He consistently delivers results that exceed expectations, making him a valuable asset to any team.",
+        "I consistently relied on his technical proficiency and dedication. Daud played a crucial role in the successful Core Banking migration project. His contributions included creating comprehensive automation tests and conducting thorough code reviews, ensuring the quality and stability of the migrated systems. This project was a significant undertaking, and Daud's efforts were instrumental in completing it within a tight six-month timeframe. The project resulted in a remarkable 95% reduction in core banking expenses, translating to roughly 30% of Hijra Group's overall revenue. His expertise in this area has been invaluable to the team.",
       author: {
-        name: "Pablo Stanley",
-        role: "Product Manager at Finovate",
-        avatar: "/images/testimonials/avatar-1.png",
+        name: "Head of Engineering - Hijra Bank",
+        role: "PT. BPRS Hijra Alami",
+        avatar: "/images/testimonials/avatar1.png",
       },
     },
     medium: {
-      stat: "3X",
-      statLabel: "Improved user engagement and sign-ups",
+      stat: "",
+      statLabel: "Turning Ambiguous UI Requirements into “Perfect” Client Mockups",
       quote:
-        "Edwin's expertise in frontend development is remarkable. He brings creativity and innovation to the table, ensuring that every project is not only functional but also visually appealing. ",
+        "Your output was prompt and had few bugs, though my instructions were sometimes hard to imagine from a UI perspective. \n Our client always wanted a 'perfect' mock-up, and your output helped me respond to their requirements.",
       author: {
-        name: "Pablo Stanley",
-        role: "Product Manager at Finovate",
-        avatar: "/images/testimonials/avatar-2.png",
+        name: "Yonemori San",
+        role: "LakeSuccess Co., Ltd",
+        avatar: "/images/testimonials/avatar2.png",
       },
     },
     small: [
       {
         quote:
-          "Edwin's work ethic and dedication are truly inspiring. He approaches challenges with a positive attitude and consistently finds effective solutions.",
+          "Daud's work ethic and dedication are truly inspiring. He approaches challenges with a positive attitude and consistently finds effective solutions.",
         author: {
-          name: "Pablo Stanley",
-          role: "Product Manager at Finovate",
-          avatar: "/images/testimonials/avatar-3.png",
+          name: "Head of infrastructure",
+          role: "PT. Bukalapak",
+          avatar: "/images/testimonials/avatar3.png",
         },
       },
       {
         quote:
-          "Edwin has a unique ability to transform complex ideas into user-friendly designs. His contributions have significantly enhanced our projects.",
+          "Daud is a genuine force multiplier. He is highly dependable and technically strong. I strongly recommend him for roles that require excellence in execution, strong collaboration, and proactive leadership.",
         author: {
-          name: "Pablo Stanley",
-          role: "Product Manager at Finovate",
-          avatar: "/images/testimonials/avatar-4.png",
+          name: "Senior Frontend Engineer",
+          role: "PT. 99 Group",
+          avatar: "/images/testimonials/avatar4.png",
         },
       },
     ],
@@ -60,11 +60,7 @@ const Rating = () => (
   <div className="flex items-center gap-[4px]">
     {Array.from({ length: 5 }).map((_, index) => (
       <div key={index} className="size-[24px]">
-        <img
-          src={STAR_ICON}
-          alt=""
-          className="block max-w-none size-full"
-        />
+        <img src={STAR_ICON} alt="" className="block size-full max-w-none" />
       </div>
     ))}
   </div>
@@ -72,30 +68,26 @@ const Rating = () => (
 
 const QuoteIcon = () => (
   <div className="size-[48px]">
-    <img
-      src={QUOTE_ICON}
-      alt=""
-      className="block max-w-none size-full"
-    />
+    <img src={QUOTE_ICON} alt="" className="block size-full max-w-none" />
   </div>
 );
 
 const Avatar = ({ src, alt }: { src: string; alt: string }) => (
   <div className="size-[48px]">
-    <img src={src} alt={alt} className="block max-w-none size-full" />
+    <img src={src} alt={alt} className="block size-full max-w-none" />
   </div>
 );
 
 const AuthorInfo = ({ name, role }: { name: string; role: string }) => (
-  <div className="flex w-full flex-col items-center text-[16px] leading-[30px] tracking-[-0.48px] text-[#fdfdfd]">
-    <p className="font-semibold w-full">{name}</p>
-    <p className="font-normal w-full">{role}</p>
+  <div className="text-neutral-25 flex w-full flex-col items-center text-[16px] leading-[30px] tracking-[-0.48px]">
+    <p className="w-full font-semibold">{name}</p>
+    <p className="w-full font-normal">{role}</p>
   </div>
 );
 
 export function Testimonials() {
   return (
-    <section className="dark-section py-[80px] px-4 lg:px-[120px]">
+    <section className="dark-section px-4 py-[80px] lg:px-[120px]">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-[48px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -104,10 +96,10 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mx-auto flex w-full max-w-[655px] flex-col items-center gap-[16px] text-center"
         >
-          <h2 className="text-[48px] font-bold leading-[60px] tracking-[-2.4px] text-white">
+          <h2 className="text-[48px] leading-[60px] font-bold tracking-[-2.4px] text-white">
             {testimonialContent.heading}
           </h2>
-          <p className="text-[16px] font-normal leading-[30px] tracking-[-0.48px] text-[#a4a7ae]">
+          <p className="type-body-md font-normal text-neutral-400">
             {testimonialContent.subheading}
           </p>
         </motion.div>
@@ -122,21 +114,21 @@ export function Testimonials() {
           {/* Left large card */}
           <div className="w-full lg:h-[751px] lg:w-[448px]">
             <div
-              className="flex h-full w-full flex-col items-start justify-between border border-[#149bb0] bg-[#0a0d12] p-[20px]"
+              className="flex h-full w-full flex-col items-start justify-between border border-[#149bb0] bg-neutral-950 p-[20px]"
               style={{
                 backgroundImage:
                   "linear-gradient(-45deg, rgba(20, 155, 176, 0) 31.86%, rgba(20, 155, 176, 0.14) 83.82%)",
               }}
             >
               <div className="flex w-full flex-col gap-[8px]">
-                <p className="text-[36px] font-bold leading-[44px] tracking-[-0.72px] text-white">
+                <p className="text-[36px] leading-[44px] font-bold tracking-[-0.72px] text-white">
                   {testimonialContent.cards.large.stat}
                 </p>
-                <p className="text-[24px] font-bold leading-[36px] text-[#fdfdfd]">
+                <p className="text-neutral-25 text-[24px] leading-[36px] font-bold">
                   {testimonialContent.cards.large.statLabel}
                 </p>
                 <Rating />
-                <p className="text-[16px] font-normal leading-[30px] tracking-[-0.48px] text-[#a4a7ae]">
+                <p className="type-body-md font-normal text-neutral-400">
                   {testimonialContent.cards.large.quote}
                 </p>
               </div>
@@ -160,16 +152,16 @@ export function Testimonials() {
           {/* Right column */}
           <div className="flex w-full flex-1 flex-col gap-[20px] lg:w-[732px]">
             {/* Top medium card */}
-            <div className="flex h-auto w-full flex-col items-start justify-between border border-[#22252b] bg-[#0a0d12] p-[20px] lg:h-[367px] lg:w-[732px]">
+            <div className="border-stroke-700 flex h-auto w-full flex-col items-start justify-between border bg-neutral-950 p-[20px] lg:h-[367px] lg:w-[732px]">
               <div className="flex w-full flex-col gap-[8px]">
-                <p className="text-[36px] font-bold leading-[44px] tracking-[-0.72px] text-white">
+                <p className="text-[36px] leading-[44px] font-bold tracking-[-0.72px] text-white">
                   {testimonialContent.cards.medium.stat}
                 </p>
-                <p className="text-[18px] font-semibold leading-[32px] tracking-[-0.54px] text-[#fdfdfd]">
+                <p className="type-body-lg text-neutral-25 font-semibold">
                   {testimonialContent.cards.medium.statLabel}
                 </p>
                 <Rating />
-                <p className="text-[16px] font-normal leading-[30px] tracking-[-0.48px] text-[#a4a7ae]">
+                <p className="type-body-md font-normal text-neutral-400">
                   {testimonialContent.cards.medium.quote}
                 </p>
               </div>
@@ -194,11 +186,11 @@ export function Testimonials() {
               {testimonialContent.cards.small.map((card, index) => (
                 <div
                   key={card.quote}
-                  className="flex h-auto w-full flex-1 flex-col items-start justify-between border border-[#22252b] bg-[#0a0d12] p-[20px] lg:h-[364px] lg:w-[356px] lg:flex-none"
+                  className="border-stroke-700 flex h-auto w-full flex-1 flex-col items-start justify-between border bg-neutral-950 p-[20px] lg:h-[364px] lg:w-[356px] lg:flex-none"
                 >
                   <div className="flex w-full flex-col gap-[12px]">
                     <Rating />
-                    <p className="text-[16px] font-normal leading-[30px] tracking-[-0.48px] text-[#a4a7ae]">
+                    <p className="type-body-md font-normal text-neutral-400">
                       {card.quote}
                     </p>
                   </div>

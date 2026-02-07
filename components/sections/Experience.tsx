@@ -6,52 +6,73 @@ import { useEffect, useRef, useState } from "react";
 
 const experiences = [
   {
-    title: "Frontend Developer",
-    period: "2025- Present",
+    title: "Freelance Software Engineer (Remote)",
+    period: "Mar 2025 - Present",
     description:
-      "Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.",
-    company: "Airbnb",
+      "Delivered production features across 3 codebases: CFRS (Java + FE), procube-kansa-sve (Svelte), satoma-renewal (Next.js/React). Built core audit/control workflow UIs including navigation, approval queue, document list, read-only viewers, and financial analysis. Collaborated with Japan-based stakeholders, translating requirements into shippable tasks/PRs.",
+    company: "LakeSuccess Co., Ltd (Japan)",
+    tech: "Java, Svelte, Next.js, React, Git, Backlog",
     companyLogo: (
       <div className="absolute inset-[8.33%_-0.13%_8.33%_0]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/experience/logo-airbnb.svg"
-          alt="Airbnb"
-          className="block max-w-none size-full"
+          src="/images/experience/lakesuccess.png"
+          alt="LakeSuccess"
+          className="block size-full max-w-fit"
         />
       </div>
     ),
   },
   {
     title: "Frontend Developer",
-    period: "2025- Present",
+    period: "Jun 2021 - Feb 2025",
     description:
-      "Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.",
-    company: "Dribbble",
+      "Recognized for consistently contributing to strategic projects. Supported Core Banking Migration Project achieving 95% reduction in operational costs (30% of Hijra Group's monthly revenue). Developed robust back-office dashboard for tellers and customer service using React.js and Next.js, reducing frontend error rates to <10%. Assisted in automated testing with Jest and Playwright, contributing to 40% reduction in regression issues. Led UI/UX optimizations reducing page load times by 30%.",
+    company: "PT. BPRS Hijra Alami - Banking Industry",
+    tech: "React.js, Next.js, Jest, Playwright",
     companyLogo: (
       <div className="absolute inset-[18.89%_0.48%_24.39%_0]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/experience/logo-dribbble.svg"
-          alt="Dribbble"
-          className="block max-w-none size-full"
+          src="/images/experience/hijrabank.webp"
+          alt="Hijra Alami"
+          className="block size-full max-w-screen"
         />
       </div>
     ),
   },
   {
     title: "Frontend Developer",
-    period: "2025- Present",
+    period: "Jan 2020 - Jun 2021",
     description:
-      "Built responsive web interfaces using modern frameworks like React.js, ensuring seamless integration with backend systems. Optimized performance, implemented accessible designs, and delivered clean, reusable code to enhance user experience and scalability.",
-    company: "Zoom",
+      "Developed multiple web applications including e-commerce platform, supply chain dashboard, and advertisement websites using React.js. Built and optimized MIFX Backoffice for PT. Monex Investindo Futures using PHP YII, enhancing system stability and streamlining operational processes in the forex trading industry. Improved system performance and optimized UI/UX across projects.",
+    company: "PT. Monex Investindo Futures & PT. DXTR ASIA",
+    tech: "React.js, PHP YII",
     companyLogo: (
-      <div className="absolute bottom-1/4 left-0 right-[0.1%] top-[29.17%]">
+      <div className="absolute top-[29.17%] right-[0.1%] bottom-1/4 left-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/experience/logo-zoom.svg"
-          alt="Zoom"
-          className="block max-w-none size-full"
+          src="/images/experience/MIFX.webp"
+          alt="Monex"
+          className="block size-full max-w-screen"
+        />
+      </div>
+    ),
+  },
+  {
+    title: "Frontend Web & Android Developer",
+    period: "Dec 2018 - Jan 2020",
+    description:
+      "Developed attendance system with geolocation tracking using Android Studio, enhancing employee monitoring accuracy. Created CRM scheduling application and reimbursement system for improved operational efficiency. Built Supply Chain Management system for DHL using .NET. Worked onsite at PT Adaro developing tracking system application.",
+    company: "PT. Abishar Technology - IT Consulting",
+    tech: "Android Studio, .NET, React.js",
+    companyLogo: (
+      <div className="absolute inset-[8.33%_-0.13%_8.33%_0]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/experience/abishar.png"
+          alt="Abishar"
+          className="block size-full max-w-screen"
         />
       </div>
     ),
@@ -100,22 +121,21 @@ export function Experience() {
   }, []);
 
   return (
-    <section className="dark-section py-[40px] px-[16px] lg:py-[80px] lg:px-[120px]">
-      <div className="max-w-[1200px] mx-auto flex flex-col gap-[24px] lg:gap-[48px]">
+    <section className="dark-section px-[16px] py-[40px] lg:px-[120px] lg:py-[80px]">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-[24px] lg:gap-[48px]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-[8px] w-full"
+          className="flex w-full flex-col gap-[8px]"
         >
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-white leading-[42px] lg:leading-[60px] tracking-[-1.28px] lg:tracking-[-2.4px]">
-            My Journey in Tech
+          <h2 className="text-[32px] leading-[42px] font-bold tracking-[-1.28px] text-white lg:text-[48px] lg:leading-[60px] lg:tracking-[-2.4px]">
+            Professional Experience
           </h2>
-          <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
-            From small gigs to real-world challenges — each experience helped me
-            grow as a builder and problem-solver.
+          <p className="type-body-sm font-normal text-neutral-400 lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px]">
+            7+ years of experience across banking, forex trading, IT consulting, and e-commerce industries.
           </p>
         </motion.div>
 
@@ -132,16 +152,14 @@ export function Experience() {
             <div
               className="flex gap-[20px] transition-transform duration-300"
               style={{
-                transform: `translateX(-${
-                  activeIndex * (cardWidth + 20)
-                }px)`,
+                transform: `translateX(-${activeIndex * (cardWidth + 20)}px)`,
               }}
             >
               {experiences.map((exp, index) => (
                 <div
                   key={index}
                   ref={index === 0 ? firstCardRef : undefined}
-                  className="flex-shrink-0 w-full lg:w-[564px]"
+                  className="w-full flex-shrink-0 lg:w-[564px]"
                 >
                   <JobCard {...exp} />
                 </div>
@@ -150,10 +168,13 @@ export function Experience() {
           </div>
 
           {/* Progress Line */}
-          <div className="relative w-full h-[4px] hidden lg:block" ref={progressTrackRef}>
-            <div className="absolute inset-0 top-1/2 -translate-y-1/2 h-px bg-[#22252b]" />
+          <div
+            className="relative hidden h-[4px] w-full lg:block"
+            ref={progressTrackRef}
+          >
+            <div className="bg-stroke-700 absolute inset-0 top-1/2 h-px -translate-y-1/2" />
             <div
-              className="absolute left-0 top-1/2 -translate-y-1/2 h-[4px] bg-[#fdfdfd] transition-transform duration-300"
+              className="absolute top-1/2 left-0 h-[4px] -translate-y-1/2 bg-[#fdfdfd] transition-transform duration-300"
               style={{
                 width: `${Math.min(549, trackWidth || 0)}px`,
                 transform: `translateX(${Math.max(
@@ -169,8 +190,8 @@ export function Experience() {
             <button
               onClick={() => scroll("prev")}
               disabled={!canScrollPrev}
-              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] tracking-[-0.32px] flex items-center justify-center lg:w-[118px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
-                canScrollPrev ? "text-[#fdfdfd]" : "text-[#252b37]"
+              className={`border-stroke-700 flex h-[40px] w-[118px] items-center justify-center border text-[14px] leading-[28px] font-semibold tracking-[-0.32px] lg:h-[48px] lg:w-[118px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
+                canScrollPrev ? "text-neutral-25" : "text-neutral-800"
               }`}
             >
               Prev
@@ -178,8 +199,8 @@ export function Experience() {
             <button
               onClick={() => scroll("next")}
               disabled={!canScrollNext}
-              className={`w-[118px] h-[40px] border border-[#22252b] text-[14px] font-semibold leading-[28px] tracking-[-0.32px] flex items-center justify-center lg:w-[118px] lg:h-[48px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
-                canScrollNext ? "text-[#fdfdfd]" : "text-[#252b37]"
+              className={`border-stroke-700 flex h-[40px] w-[118px] items-center justify-center border text-[14px] leading-[28px] font-semibold tracking-[-0.32px] lg:h-[48px] lg:w-[118px] lg:text-[16px] lg:leading-[30px] lg:tracking-[-0.48px] ${
+                canScrollNext ? "text-neutral-25" : "text-neutral-800"
               }`}
             >
               Next

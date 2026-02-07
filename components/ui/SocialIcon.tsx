@@ -92,8 +92,8 @@ export function SocialIcon({ platform, href, className }: SocialIconProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "flex items-center justify-center w-10 h-10",
-        "text-[#252B37] hover:text-[#149bb0]",
+        "flex h-10 w-10 items-center justify-center",
+        "hover:text-brand-500 text-[#252B37]",
         "transition-colors duration-200",
         className
       )}

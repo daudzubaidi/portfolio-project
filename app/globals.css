@@ -29,6 +29,7 @@
   --color-neutral-800: #252b37;
   --color-neutral-900: #181d27;
   --color-neutral-950: #0a0d12;
+  --color-stroke-700: #22252b;
 
   /* Semantic */
   --color-text-primary: var(--color-neutral-900);
@@ -114,12 +115,15 @@
 
   /* ===== Shadows ===== */
   --shadow-sm: 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
-  --shadow-md: 0px 2px 4px -1px rgba(10, 13, 18, 0.06),
+  --shadow-md:
+    0px 2px 4px -1px rgba(10, 13, 18, 0.06),
     0px 4px 6px -1px rgba(10, 13, 18, 0.08);
-  --shadow-lg: 0px 2px 2px -1px rgba(10, 13, 18, 0.04),
+  --shadow-lg:
+    0px 2px 2px -1px rgba(10, 13, 18, 0.04),
     0px 4px 6px -2px rgba(10, 13, 18, 0.03),
     0px 12px 16px -4px rgba(10, 13, 18, 0.08);
-  --shadow-xl: 0px 4px 6px -2px rgba(10, 13, 18, 0.03),
+  --shadow-xl:
+    0px 4px 6px -2px rgba(10, 13, 18, 0.03),
     0px 12px 16px -4px rgba(10, 13, 18, 0.08),
     0px 20px 24px -4px rgba(10, 13, 18, 0.08);
 
@@ -151,6 +155,7 @@
   --color-neutral-800: var(--color-neutral-800);
   --color-neutral-900: var(--color-neutral-900);
   --color-neutral-950: var(--color-neutral-950);
+  --color-stroke-700: var(--color-stroke-700);
 
   /* Font Family */
   --font-sans: var(--font-family-body);
@@ -202,6 +207,34 @@ body {
 /* ============================================
    TYPOGRAPHY UTILITIES
    ============================================ */
+
+@utility type-body-sm {
+  font-size: 14px;
+  line-height: 28px;
+}
+
+@utility type-body-md {
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: -0.48px;
+}
+
+@utility type-body-lg {
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: -0.54px;
+}
+
+@utility type-title-sm {
+  font-size: 20px;
+  line-height: 34px;
+}
+
+@utility type-display-mobile {
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -1.28px;
+}
 
 .text-display-2xl {
   font-family: var(--font-family-display);
@@ -290,8 +323,8 @@ body {
 
 /* Smooth transitions for interactive elements */
 .transition-base {
-  transition-property: transform, opacity, background-color, border-color,
-    color, box-shadow;
+  transition-property:
+    transform, opacity, background-color, border-color, color, box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
 }
@@ -328,4 +361,211 @@ body {
     rgba(20, 155, 176, 0.3) 0%,
     rgba(20, 155, 176, 0) 100%
   );
+}
+
+/* ============================================
+   ENHANCED ANIMATIONS (Inspired by Top Portfolios)
+   ============================================ */
+
+/* Smooth hover lift effect for cards */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(20, 155, 176, 0.3);
+}
+
+/* Glow effect on hover */
+.glow-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-hover::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(20, 155, 176, 0.3),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.glow-hover:hover::before {
+  opacity: 1;
+}
+
+/* Shimmer effect for buttons */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.shimmer-btn:hover::after {
+  left: 100%;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: var(--color-bg-dark);
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 155, 176, 0.5),
+    transparent,
+    rgba(20, 155, 176, 0.5)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Text gradient animation */
+.text-gradient-animate {
+  background: linear-gradient(
+    90deg,
+    #149bb0,
+    #1dd3f0,
+    #149bb0
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Floating animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Pulse glow animation */
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(20, 155, 176, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(20, 155, 176, 0.6);
+  }
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Underline animation */
+.underline-animate {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-animate::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #149bb0, #1dd3f0);
+  transition: width 0.3s ease;
+}
+
+.underline-animate:hover::after {
+  width: 100%;
+}
+
+/* Smooth section transitions */
+section {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-500);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-600);
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(20, 155, 176, 0.3);
+  color: #fff;
+}
+
+/* Focus visible outline */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
 }

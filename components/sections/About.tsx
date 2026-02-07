@@ -24,7 +24,7 @@ const skills = [
     ),
     title: "Frontend Development",
     description:
-      "I build responsive, accessible, and scalable websites using modern frontend tools and best practices.",
+      "Specializing in React.js, Vue.js, Next.js, and Nuxt.js with ~7 years of experience. Proficient in Tailwind CSS, Chakra UI, and Bootstrap for responsive UI.",
   },
   {
     icon: (
@@ -41,9 +41,9 @@ const skills = [
         />
       </svg>
     ),
-    title: "Web Performance",
+    title: "Mobile Development",
     description:
-      "I optimize websites for speed and efficiency to ensure smooth experiences across all devices.",
+      "Experienced in React Native and Android Studio for building cross-platform mobile applications.",
   },
   {
     icon: (
@@ -62,9 +62,9 @@ const skills = [
         />
       </svg>
     ),
-    title: "Component Based UI",
+    title: "API Integration",
     description:
-      "I specialize in crafting reusable UI components that are clean, maintainable, and aligned with design systems.",
+      "Proficient in REST APIs and debugging, ensuring seamless integration between frontend and backend systems.",
   },
   {
     icon: (
@@ -88,16 +88,16 @@ const skills = [
         </defs>
       </svg>
     ),
-    title: "Responsive Design",
+    title: "Testing & Quality",
     description:
-      "I ensure that every layout adapts beautifully to different screen sizes — from mobile to desktop.",
+      "Experienced with Jest, Playwright, Sentry, and GCP Logging for automated testing and error monitoring.",
   },
 ];
 
 const socialLinks = [
-  { platform: "facebook" as const, href: "https://facebook.com" },
+  { platform: "linkedin" as const, href: "https://linkedin.com/in/daud-abdilah-zubaidi" },
   { platform: "instagram" as const, href: "https://instagram.com" },
-  { platform: "linkedin" as const, href: "https://linkedin.com" },
+  { platform: "facebook" as const, href: "https://facebook.com" },
   { platform: "tiktok" as const, href: "https://tiktok.com" },
 ];
 
@@ -120,31 +120,30 @@ export function About() {
   return (
     <section
       id="about"
-      className="dark-section py-[40px] px-0 lg:py-[80px] lg:px-[120px]"
+      className="dark-section px-0 py-[40px] lg:px-[120px] lg:py-[80px]"
     >
-      <div className="max-w-[393px] lg:max-w-[1440px] mx-auto flex flex-col gap-[24px] lg:gap-[48px] px-[16px] lg:px-0">
+      <div className="mx-auto flex max-w-[393px] flex-col gap-[24px] px-[16px] lg:max-w-[1440px] lg:gap-[48px] lg:px-0">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row justify-between gap-[24px] lg:gap-8"
+          className="flex flex-col justify-between gap-[24px] lg:flex-row lg:gap-8"
         >
-          <h2 className="text-[32px] font-bold text-white leading-[42px] tracking-[-1.28px] lg:text-[40px] lg:leading-[56px] lg:tracking-[-2px] max-w-[756px]">
-            I turn ideas and designs into functional, accessible, and performant
-            websites{" "}
+          <h2 className="type-display-mobile max-w-[756px] font-bold text-white lg:text-[40px] lg:leading-[56px] lg:tracking-[-2px]">
+            7 years delivering real solutions{" "}
             <span className="text-[#149bb0]">
-              using modern frontend technologies
+              in banking, fintech, and healthcare
             </span>
-            .
+            . I own outcomes, not just code.
           </h2>
 
-          <div className="flex flex-col items-start gap-[16px] lg:items-end lg:gap-[116px] w-full lg:w-[208px] shrink-0">
-            <span className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px] lg:text-[18px] lg:leading-[32px] lg:tracking-[-0.54px]">
+          <div className="flex w-full shrink-0 flex-col items-start gap-[16px] lg:w-[208px] lg:items-end lg:gap-[116px]">
+            <span className="text-[16px] leading-[30px] font-normal tracking-[-0.48px] text-neutral-400 lg:text-[18px] lg:leading-[32px] lg:tracking-[-0.54px]">
               About Me
             </span>
-            <div className="flex items-center gap-[16px] h-[40px]">
+            <div className="flex h-[40px] items-center gap-[16px]">
               {socialLinks.map((link) => (
                 <SocialIcon
                   key={link.platform}
@@ -157,23 +156,23 @@ export function About() {
         </motion.div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#22252b]" />
+        <div className="bg-stroke-700 h-px w-full" />
 
         {/* Content Grid */}
-        <div className="flex flex-col lg:flex-row gap-[24px] lg:gap-[41px]">
+        <div className="flex flex-col gap-[24px] lg:flex-row lg:gap-[41px]">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative w-[361px] h-[409px] lg:w-[453px] lg:h-[513px] shrink-0 overflow-hidden"
+            className="relative h-[409px] w-[361px] shrink-0 overflow-hidden lg:h-[513px] lg:w-[453px]"
           >
             <Image
-              src="/images/about.png"
-              alt="Edwin Anderson working on laptop"
+              src="/images/work.png"
+              alt="Daud Abdilah Zubaidi working on laptop"
               fill
-              className="object-cover"
+              className="object-contain"
               sizes="(max-width: 1024px) 361px, 453px"
             />
           </motion.div>
@@ -184,7 +183,7 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex-1 flex flex-col gap-[24px] lg:gap-[40px]"
+            className="flex flex-1 flex-col gap-[24px] lg:gap-[40px]"
           >
             {/* Mobile list */}
             <div className="flex flex-col gap-[24px] lg:hidden">
@@ -194,20 +193,20 @@ export function About() {
                     variants={itemVariants}
                     className="flex flex-col gap-[12px]"
                   >
-                    <div className="shrink-0 w-[40px] h-[40px]">
+                    <div className="h-[40px] w-[40px] shrink-0">
                       {skill.icon}
                     </div>
                     <div className="flex flex-col gap-[2px]">
-                      <h3 className="text-[18px] font-bold leading-[32px] text-white">
+                      <h3 className="text-[18px] leading-[32px] font-bold text-white">
                         {skill.title}
                       </h3>
-                      <p className="text-[14px] font-normal leading-[28px] text-[#a4a7ae]">
+                      <p className="type-body-sm font-normal text-neutral-400">
                         {skill.description}
                       </p>
                     </div>
                   </motion.div>
                   {index < skills.length - 1 && (
-                    <div className="w-full h-px bg-[#22252b]" />
+                    <div className="bg-stroke-700 h-px w-full" />
                   )}
                 </div>
               ))}
@@ -215,42 +214,42 @@ export function About() {
 
             {/* Desktop grid */}
             <div className="hidden lg:flex lg:flex-col lg:gap-[40px]">
-              <div className="flex flex-col sm:flex-row gap-[24px] lg:gap-[48px]">
+              <div className="flex flex-col gap-[24px] sm:flex-row lg:gap-[48px]">
                 {skills.slice(0, 2).map((skill) => (
                   <motion.div
                     key={skill.title}
                     variants={itemVariants}
-                    className="flex-1 flex flex-col gap-[16px] lg:gap-[24px]"
+                    className="flex flex-1 flex-col gap-[16px] lg:gap-[24px]"
                   >
-                    <div className="shrink-0 w-[40px] h-[40px]">
+                    <div className="h-[40px] w-[40px] shrink-0">
                       {skill.icon}
                     </div>
                     <div className="flex flex-col gap-[2px]">
-                      <h3 className="text-[20px] font-bold leading-[34px] text-white">
+                      <h3 className="type-title-sm font-bold text-white">
                         {skill.title}
                       </h3>
-                      <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+                      <p className="text-[16px] leading-[30px] font-normal tracking-[-0.48px] text-neutral-400">
                         {skill.description}
                       </p>
                     </div>
                   </motion.div>
                 ))}
               </div>
-              <div className="flex flex-col sm:flex-row gap-[24px] lg:gap-[48px]">
+              <div className="flex flex-col gap-[24px] sm:flex-row lg:gap-[48px]">
                 {skills.slice(2, 4).map((skill) => (
                   <motion.div
                     key={skill.title}
                     variants={itemVariants}
-                    className="flex-1 flex flex-col gap-[16px] lg:gap-[24px]"
+                    className="flex flex-1 flex-col gap-[16px] lg:gap-[24px]"
                   >
-                    <div className="shrink-0 w-[40px] h-[40px]">
+                    <div className="h-[40px] w-[40px] shrink-0">
                       {skill.icon}
                     </div>
                     <div className="flex flex-col gap-[2px]">
-                      <h3 className="text-[20px] font-bold leading-[34px] text-white">
+                      <h3 className="type-title-sm font-bold text-white">
                         {skill.title}
                       </h3>
-                      <p className="text-[16px] font-normal leading-[30px] text-[#a4a7ae] tracking-[-0.48px]">
+                      <p className="text-[16px] leading-[30px] font-normal tracking-[-0.48px] text-neutral-400">
                         {skill.description}
                       </p>
                     </div>

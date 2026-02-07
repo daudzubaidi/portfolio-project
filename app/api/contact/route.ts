@@ -3,9 +3,25 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+function escapeHtml(input: string) {
+  return input
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const payload = (await request.json()) as {
+      name?: string;
+      email?: string;
+      message?: string;
+    };
+    const name = payload.name?.trim() ?? "";
+    const email = payload.email?.trim() ?? "";
+    const message = payload.message?.trim() ?? "";
 
     // Check if environment variables are configured
     if (
@@ -14,7 +30,10 @@ export async function POST(request: Request) {
     ) {
       console.error("RESEND_API_KEY not configured");
       return NextResponse.json(
-        { error: "Email service not configured. Please contact the site administrator." },
+        {
+          error:
+            "Email service not configured. Please contact the site administrator.",
+        },
         { status: 500 }
       );
     }
@@ -25,7 +44,10 @@ export async function POST(request: Request) {
     ) {
       console.error("CONTACT_EMAIL not configured");
       return NextResponse.json(
-        { error: "Email recipient not configured. Please contact the site administrator." },
+        {
+          error:
+            "Email recipient not configured. Please contact the site administrator.",
+        },
         { status: 500 }
       );
     }
@@ -47,6 +69,10 @@ export async function POST(request: Request) {
       );
     }
 
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
+
     // Send email using Resend
     const data = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>", // You'll change this to your verified domain
@@ -57,10 +83,10 @@ export async function POST(request: Request) {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #149bb0;">New Contact Form Submission</h2>
           <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Name:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
             <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <p style="white-space: pre-wrap;">${safeMessage}</p>
           </div>
           <p style="color: #666; font-size: 12px;">
             This email was sent from your portfolio contact form.
