@@ -25,20 +25,20 @@ const projects = [
     href: "#",
     tech: "React.js",
   },
-  {
-    title: "Coffee Machine Company Profile",
-    year: "2021",
-    image: "/images/portfolio/porto4.png",
-    href: "#",
-    tech: "PHP CodeIgniter",
-  },
-  {
-    title: "School Landing Page",
-    year: "2020",
-    image: "/images/portfolio/porto5.png",
-    href: "#",
-    tech: "HTML, Bootstrap",
-  },
+  // {
+  //   title: "Coffee Machine Company Profile",
+  //   year: "2021",
+  //   image: "/images/portfolio/porto4.png",
+  //   href: "#",
+  //   tech: "PHP CodeIgniter",
+  // },
+  // {
+  //   title: "School Landing Page",
+  //   year: "2020",
+  //   image: "/images/portfolio/porto5.png",
+  //   href: "#",
+  //   tech: "HTML, Bootstrap",
+  // },
 ];
 
 export function Portfolio() {
